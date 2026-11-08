@@ -250,7 +250,7 @@ S08/S10覆盖不足，尤其成交间隔CV只有约61–62%覆盖；这来自无
 ### 文件与后续闸门
 
 - [完整主结果](factors/flow-v1/evaluation/results.json)、[后验稳健性](factors/flow-v1/evaluation/sensitivity.json)、[冻结门槛](factors/flow-v1/evaluation/parameters.json)、[参数源检查](factors/flow-v1/evaluation/calibration-validation.json)。
-- [Notebook](../notebooks/新增流速因子评测.ipynb)：32个单因子目标组合、两张图、逐币模型表现。原始/特征/预测均在data/factor-library/evaluation-v1，Git忽略。
+- 32个单因子目标组合和逐币模型表现保存在上述主结果与稳健性JSON中，计算与评测入口在tools/factors。原始/特征/预测均在data/factor-library/evaluation-v1，Git忽略。
 - registry_snapshot.json保存本轮使用注册表的确切字节与哈希；活跃注册表只追加评测元数据，公式未变。
 
 下一步：有限候选组与原50因子按共同接收时钟重建，做数值/缺失指示独立消融；扩展全天、100ms/事件决策网格和更长独立日期，再检验延迟衰减、条件成交后Markout、手续费与队列约束下收益。1s评测不能当作100ms高频做市验收，研究候选不等于交易采用。
