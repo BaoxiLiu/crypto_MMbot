@@ -8,7 +8,7 @@ import unittest
 import urllib.error
 from unittest.mock import patch
 
-from tools.data import download_cryptohftdata_multi as dl
+from tools.data import download_cryptohftdata as dl
 
 
 class DownloadTests(unittest.TestCase):

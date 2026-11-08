@@ -156,6 +156,6 @@ def main(source,output):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--source',type=Path,default=ROOT/'data/experiments/doge-markout-context-full-20261020-v1')
-    p.add_argument('--output',type=Path,default=ROOT/'doc/reports/2026-10-21-doge-realized-roundtrips-v1')
+    p.add_argument('--source',type=Path,required=True)
+    p.add_argument('--output',type=Path,required=True)
     a=p.parse_args();main(a.source.resolve(),a.output.resolve())

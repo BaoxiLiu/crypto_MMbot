@@ -74,3 +74,9 @@ MLP缺失值用训练中位数，另加全部24列缺失指示；每列训练0.1
 树对照1：上一轮native-NaN树模型all16的确切测试预测，匹配(symbol,received_ns,target)逐行核验。树对照2：相同特征预处理（含相同缺失指示）的HistGradientBoosting，60迭代、0.05学习率、15叶、深度5、最小叶200、L2=1；相同三个种子。不同类别的固定训练预算不能声称等效超参搜索，本轮无新增调参。
 
 指标：逐币逐日期配对MSE，跨币共同日期等权改善与7个日块bootstrap区间；报告MAE、逐币、验证选择epoch和训练时间。两个预测任务分别评价，区间为小样本探索性，不作交易采用证明。每日一小时、1s网格、旧研究日期的限制保留；不比较交易收益，不宣称深度优于树的通用结论。
+
+## 显式输入的基线研究工具
+
+`tools/models/assemble_v3_baseline_datasets.py`使用`--labels`、`--v3`、`--baseline`、`--symbol`、`--test-start`和`--out`组装冻结15维、D7/D8及共享评价帧；输出目录必须不存在。`--btc-symbol`默认BTCUSDC，仅指定背景特征来源，不替代回测币种规则。输入列序、时钟及样本可见性仍须符合原数值合同。
+
+`tools/factors/compare_v3_baseline.py`使用`--v3-report`、`--baseline-report`、`--targets`和`--out`比较两个在相同评价帧上生成的模型报告。配对小时rankIC和固定种子bootstrap算法保持不变；不再写死PEPE文件名或旧输出位置。该结果只说明预测差异，不表示已采用为做市信号。

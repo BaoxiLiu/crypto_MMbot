@@ -19,14 +19,17 @@ KINDS = ["orderbook", "trades", "mark_price"]
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--root", default="data/cryptohftdata")
-    p.add_argument("--start", default="2026-08-05")
-    p.add_argument("--end", default="2026-10-05", help="exclusive")
+    p.add_argument("--root", required=True)
+    p.add_argument("--start", required=True)
+    p.add_argument("--end", required=True, help="exclusive")
     p.add_argument("--sample", type=int, default=30, help="parquet decode sample size")
     p.add_argument("--seed", type=int, default=20261008)
-    p.add_argument("--out", default="data/cryptohftdata/reports/coverage-20261008.json")
+    p.add_argument("--out", required=True)
+    p.add_argument("--symbols", nargs="+", required=True)
     a = p.parse_args(argv)
-    a.symbols = SYMBOLS
+    if dt.date.fromisoformat(a.end)<=dt.date.fromisoformat(a.start):p.error("end must follow start")
+    if len(set(a.symbols))!=len(a.symbols) or set(a.symbols)-set(SYMBOLS):p.error("Invalid symbols")
+    if a.sample<0:p.error("sample must be nonnegative")
     return a
 
 

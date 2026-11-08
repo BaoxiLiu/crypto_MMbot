@@ -68,3 +68,9 @@ def test_graph_includes_closed_registry_loading():
         'app.market_making.strategies.new_policy': 'value=1',
     })
     assert graph['app.market_making.strategies.registry'] == {'app.market_making.strategies.new_policy'}
+
+
+def test_new_tools_cannot_reintroduce_container_execution(tmp_path):
+    package=tmp_path/'tools/datasets';package.mkdir(parents=True)
+    (package/'new_tool.py').write_text('import subprocess\nsubprocess.run(["docker", "exec", "old"])\n')
+    assert 'container-runtime:tools/datasets/new_tool.py' in check_boundaries(tmp_path)

@@ -258,3 +258,13 @@ class TestVwapTargets(unittest.TestCase):
         out = _labels_vwap(mids2, bn, sn, bq, sq, bp, sp)
         self.assertTrue(np.isnan(out["R_vwap_5"][0]))   # window (0,5] hits gap
         self.assertFalse(np.isnan(out["R_vwap_5"][5]))  # window (5,10] clean
+
+
+def test_explicit_baseline_comparison_preserves_paired_statistic(tmp_path):
+    from tools.factors.compare_v3_baseline import paired_increment
+    for name,values in [('v3.json',{'a':.1,'b':.4,'c':.2}),('base.json',{'a':.0,'b':.2,'c':.3})]:
+        (tmp_path/name).write_text(json.dumps({'targets':{'T1':{'test_eval':{'paired':{'rankic_by_hour':values}}}}}))
+    expected={'hours':3,'mean_v3':0.2333333333333333,'mean_base':0.16666666666666666,
+              'increment':0.0666666666666667,'ci_lo':-0.09999999999999998,'ci_hi':0.16666666666666666}
+    actual=paired_increment(tmp_path/'v3.json',tmp_path/'base.json','T1',n_boot=100,seed=11)
+    assert actual==expected

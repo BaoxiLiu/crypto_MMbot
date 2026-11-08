@@ -1,19 +1,9 @@
-"""Assemble the baseline-comparison datasets for the PEPE sprint (P3).
+"""Assemble frozen-15/D7-D8 comparisons on an explicit shared evaluation frame.
 
-Reads the recomputed frozen-15 baseline hour parquets (this repo,
-tools/factors/compute_v3_baseline15.py), joins them with the v3 labels, and writes:
-
-- pepe-14d.base15.parquet      complete-case rows on the frozen 15 features
-- pepe-14d.d78.parquet         the D7/D8 rv pair alone (the "common sense"
-                               share of v3's T2 performance)
-- pepe-14d.evalframe.parquet   the SHARED evaluation frame: test-window rows
-                               where BOTH feature sets are complete, carrying
-                               all 58 feature columns + labels; every model
-                               configuration is scored on these identical
-                               rows so per-hour rankICs pair exactly.
-
-Also writes pepe-14d.baseline15.report.json with coverage statistics.
+Writes baseline15.parquet, d78.parquet, evalframe.parquet and coverage.json.
+Input symbol, files, test boundary and output directory are always explicit.
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -25,11 +15,6 @@ import pyarrow.parquet as pq
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-
-ASSEMBLED = ROOT / "data/prediction-v3/assembled"
-BASELINE = ROOT / "data/prediction-v3/baseline15"
-SYM = "1000PEPEUSDC"
-BTC = "BTCUSDC"
 
 ID_COLUMNS = ["sec", "date", "mid", "complete", "capture_rate", "T1", "T2", "T3"]
 
@@ -43,12 +28,21 @@ def read_hours(root, symbol):
 
 
 def main():
-    lv = pq.ParquetFile(ASSEMBLED / "pepe-14d.labelvalid.parquet") \
+    parser=argparse.ArgumentParser(description=__doc__)
+    for key in ('labels','v3','baseline','out'):
+        parser.add_argument('--'+key,type=Path,required=True)
+    parser.add_argument('--symbol',required=True)
+    parser.add_argument('--btc-symbol',default='BTCUSDC')
+    parser.add_argument('--test-start',required=True)
+    args=parser.parse_args()
+    pd.Timestamp(args.test_start)  # validate before allocating output
+    args.out.mkdir(parents=True,exist_ok=False)
+    lv = pq.ParquetFile(args.labels) \
         .read().to_pandas()
-    v3 = pq.ParquetFile(ASSEMBLED / "pepe-14d.parquet").read().to_pandas()
+    v3 = pq.ParquetFile(args.v3).read().to_pandas()
 
-    own = read_hours(BASELINE, SYM)
-    btc = read_hours(BASELINE, BTC)[["sec"] + [c for c in
+    own = read_hours(args.baseline, args.symbol)
+    btc = read_hours(args.baseline, args.btc_symbol)[["sec"] + [c for c in
                                                ("btc_mid_ret_1s", "btc_mid_ret_5s",
                                                 "btc_ofi_1s", "btc_ofi_5s",
                                                 "btc_flow_imb_1s")]]
@@ -65,24 +59,24 @@ def main():
     report["base15_complete_rows"] = int(len(base_ok))
     pq.write_table(pa.Table.from_pandas(
         base_ok[ID_COLUMNS + base_cols], preserve_index=False),
-        ASSEMBLED / "pepe-14d.base15.parquet")
+        args.out / "baseline15.parquet")
 
     v3_feats = [c for c in v3.columns if c not in ID_COLUMNS]
     d78 = v3[ID_COLUMNS + ["D7", "D8"]].dropna(subset=["D7", "D8"])
     report["d78_complete_rows"] = int(len(d78))
     pq.write_table(pa.Table.from_pandas(d78, preserve_index=False),
-                   ASSEMBLED / "pepe-14d.d78.parquet")
+                   args.out / "d78.parquet")
 
     # shared evaluation frame: v3 complete-case secs where baseline15 is
     # complete too, carrying both feature sets
     inter = v3.merge(base, on="sec", how="inner")
     inter = inter.dropna(subset=v3_feats + base_cols)
     report["evalframe_rows_total"] = int(len(inter))
-    report["evalframe_rows_test"] = int((inter["date"] >= "2026-10-01").sum())
+    report["evalframe_rows_test"] = int((inter["date"] >= args.test_start).sum())
     pq.write_table(pa.Table.from_pandas(inter, preserve_index=False),
-                   ASSEMBLED / "pepe-14d.evalframe.parquet")
+                   args.out / "evalframe.parquet")
 
-    (ASSEMBLED / "pepe-14d.baseline15.report.json").write_text(
+    (args.out / "coverage.json").write_text(
         json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
     return 0

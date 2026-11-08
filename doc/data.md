@@ -91,7 +91,7 @@ publication时钟模式分别处理事务时间T与发布时间E；本地可见�
 
 ### 下载与认证
 
-下载工具为 `tools/data/download_cryptohftdata_multi.py`；通过 `--help` 查看参数。start、end、root为必填参数；运行时显式指定symbols和项目外root，不提供历史日期或项目内下载目录默认值。max-files只做有限下载，不代表整个请求窗口完成。本次文档整理没有发起下载。
+下载工具为 `tools/data/download_cryptohftdata.py`；通过 `--help` 查看参数。start、end、root为必填参数；运行时显式指定symbols和项目外root，不提供历史日期或项目内下载目录默认值。max-files只做有限下载，不代表整个请求窗口完成。本次文档整理没有发起下载。
 
 转换缓存记录来源及代码哈希；注册配置位于config/datasets，使用前核对实际manifest身份。已迁移原始文件的旧manifest保留生成时路径，不改写旧认证哈希。重新转换应使用当前输入路径并产生新身份。
 

@@ -129,6 +129,8 @@ def check_boundaries(root):
                 issues.append(f'invalid-module:{relative}:{error}'); continue
             sources[module] = source
             for node in ast.walk(ast.parse(source)):
+                if module != 'tools.maintenance.dependency_rules' and isinstance(node, ast.Constant) and node.value in ('docker', 'podman'):
+                    issues.append(f'container-runtime:{relative}')
                 if isinstance(node, ast.ImportFrom) and any(a.name == '*' for a in node.names):
                     issues.append(f'wildcard-import:{relative}')
                 if isinstance(node, ast.Call) and module != 'app.market_making.strategies.registry':

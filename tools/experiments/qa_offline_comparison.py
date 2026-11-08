@@ -7,7 +7,7 @@ import re
 import subprocess
 import tempfile
 
-from app.backtesting.html_report import read_report
+from app.backtesting.html_report import read_report, CHARTS
 
 
 def check(path,rows_per_coin):
@@ -23,7 +23,7 @@ def check(path,rows_per_coin):
  for(const value of ['',...COINS]){
   document.getElementById('coin').value=value;filterRows();await delay(50);
   let rows=Array.from(document.querySelectorAll('.comparison tbody tr')).filter(x=>!x.hidden);
-  let pictures=Array.from(document.querySelectorAll('.plots img')).filter(x=>!x.hidden);
+  let pictures=Array.from(document.querySelectorAll('.plots img')).filter(x=>x.getClientRects().length>0);
   result.push({coin:value||'ALL',rows:rows.length,images:pictures.length,
                all_loaded:pictures.every(x=>x.complete&&x.naturalWidth>0),
                positive_width:pictures.every(x=>x.getBoundingClientRect().width>0)});
@@ -46,7 +46,8 @@ def check(path,rows_per_coin):
         results=json.loads(unescape(match.group(1)))
     for row in results:
         expected_rows=rows_per_coin*(len(coins) if row['coin']=='ALL' else 1)
-        expected_images=11*(len(coins) if row['coin']=='ALL' else 1)
+        fee_groups=len(payload['spec'].get('fee_scenarios',[])) if payload.get('fee_split_charts') else 1
+        expected_images=len(CHARTS)*max(1,fee_groups)*(len(coins) if row['coin']=='ALL' else 1)
         if row['rows']!=expected_rows or row['images']!=expected_images or not(row['all_loaded'] and row['positive_width']):
             raise ValueError('Browser QA failed: '+json.dumps(row))
     if len(results)!=len(coins)+1:raise ValueError('Incomplete browser selector check')
