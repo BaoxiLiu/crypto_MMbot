@@ -1,0 +1,56 @@
+# Private runtime inputs and regenerable results.
+/config/*
+!/config/datasets/
+!/config/profiles/
+!/config/strategies/
+!/config/experiments/
+!/config/market/
+/paths.local.json
+/data/
+/logs/
+/doc/reports/experiments/
+
+# Secrets. Public example environment files are allowed.
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+*.pem
+*.key
+
+# Local Python environments and generated artifacts.
+/conda-env/
+/.conda/
+/.venv/
+/env/
+/venv/
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.log
+*.pid
+*.sock
+*.lock
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Editor and OS metadata.
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db
+._*

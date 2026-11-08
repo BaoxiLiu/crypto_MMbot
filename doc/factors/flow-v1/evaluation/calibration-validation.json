@@ -1,0 +1,67 @@
+{
+  "BTCUSDC": {
+    "rows": 17155,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "SOLUSDC": {
+    "rows": 17344,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "SUIUSDC": {
+    "rows": 3768,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "UNIUSDC": {
+    "rows": 9365,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "DOGEUSDC": {
+    "rows": 2753,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "1000SHIBUSDC": {
+    "rows": 664,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "WIFUSDC": {
+    "rows": 268,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "ETHUSDC": {
+    "rows": 27476,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "1000PEPEUSDC": {
+    "rows": 1846,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "LTCUSDC": {
+    "rows": 1665,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "CRVUSDC": {
+    "rows": 810,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "XRPUSDC": {
+    "rows": 7055,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  },
+  "1000BONKUSDC": {
+    "rows": 755,
+    "id_gaps": 0,
+    "receive_regressions": 0
+  }
+}

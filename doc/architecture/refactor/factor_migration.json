@@ -1,0 +1,12 @@
+{
+  "old": "research/paper_reversal_20261027/features.py",
+  "canonical": "app/factor_library/paper173_core.py",
+  "implementation_sha256": "89fb9ce86028660a277e594b63e1fba56ba9a8bfe2b8461e99cc194a4da45802",
+  "identity_registrations_updated": [
+    "research/paper_reversal_20261027/extract_market_paper.py",
+    "research/paper_reversal_20261027/smoke.py",
+    "research/paper_reversal_20261027/extract_paper.py",
+    "research/paper_reversal_20261027/extract_paper_dual_grid.py",
+    "research/paper_reversal_20261027/extract_market_paper_dual_grid.py"
+  ]
+}

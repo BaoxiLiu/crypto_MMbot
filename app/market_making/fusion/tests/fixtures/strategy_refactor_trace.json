@@ -1,0 +1,426 @@
+{
+  "scope": "Synthetic pre-refactor native queue/OMS/account trace; not research PnL",
+  "cases": {
+    "as_original": {
+      "position": "-0.45",
+      "wallet": "601.0851",
+      "realized": "1.0851",
+      "unrealized": "0.0359999999999955",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "601.1210999999999955",
+      "pnl": "1.1210999999999955",
+      "cash_flow": "46.1301",
+      "max_position": "0.47",
+      "max_drawdown": "0.0044000000000088",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 83,
+        "fill_events": 57,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 57,
+        "cancel_requests": 25,
+        "terminal_CANCELED": 26,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "context_or_warmup": 5574,
+        "native_decisions": 559
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.553316094431232,
+          "observations": 55,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.5475367188446745,
+          "observations": 52,
+          "censored": 5
+        }
+      },
+      "native_fills": 57,
+      "native_fees": 0.0,
+      "trace_sha256": "921704716f3445422ebf51355b114c8f325633ad9113126c2a77e419e7ea9250",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6138,
+        "market_wakes": 3960,
+        "response_wakes": 82,
+        "timer_wakes": 81,
+        "busy_rechecks": 2015
+      },
+      "equity_sha256": "2038e54a366dce008531821bcb61ba87778d069d68ffc82e452fa857264bd38e"
+    },
+    "as_improved4": {
+      "position": "-0.45",
+      "wallet": "601.126959153",
+      "realized": "1.0851",
+      "unrealized": "0.0359999999999955",
+      "fees": "-0.041859153",
+      "funding": "0",
+      "equity": "601.1629591529999955",
+      "pnl": "1.1629591529999955",
+      "cash_flow": "46.171959153",
+      "max_position": "0.47",
+      "max_drawdown": "0.0044000000000088",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 83,
+        "fill_events": 57,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 57,
+        "cancel_requests": 25,
+        "terminal_CANCELED": 26,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "context_or_warmup": 5574,
+        "native_decisions": 559,
+        "late_sc_feedback": 55
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.553316094431232,
+          "observations": 55,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.5475367188446745,
+          "observations": 52,
+          "censored": 5
+        }
+      },
+      "native_fills": 57,
+      "native_fees": -0.04185915300000004,
+      "trace_sha256": "82483c22b97566e6b1b48799a16d7c0ea9f93d33e478ce9ac9052dfa538ff9d8",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6138,
+        "market_wakes": 3960,
+        "response_wakes": 82,
+        "timer_wakes": 81,
+        "busy_rechecks": 2015
+      },
+      "equity_sha256": "404f80b5a912913881419d8ab79edc702520d20383812cc49f914270611309ee"
+    },
+    "as_improved2": {
+      "position": "-0.45",
+      "wallet": "601.0851",
+      "realized": "1.0851",
+      "unrealized": "0.0359999999999955",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "601.1210999999999955",
+      "pnl": "1.1210999999999955",
+      "cash_flow": "46.1301",
+      "max_position": "0.47",
+      "max_drawdown": "0.0044000000000088",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 83,
+        "fill_events": 57,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 57,
+        "cancel_requests": 25,
+        "terminal_CANCELED": 26,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "context_or_warmup": 5574,
+        "native_decisions": 559,
+        "late_sc_feedback": 55
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.553316094431232,
+          "observations": 55,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.5475367188446745,
+          "observations": 52,
+          "censored": 5
+        }
+      },
+      "native_fills": 57,
+      "native_fees": 0.0,
+      "trace_sha256": "921704716f3445422ebf51355b114c8f325633ad9113126c2a77e419e7ea9250",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6138,
+        "market_wakes": 3960,
+        "response_wakes": 82,
+        "timer_wakes": 81,
+        "busy_rechecks": 2015
+      },
+      "equity_sha256": "2038e54a366dce008531821bcb61ba87778d069d68ffc82e452fa857264bd38e"
+    },
+    "as_improved0": {
+      "position": "-0.45",
+      "wallet": "601.0851",
+      "realized": "1.0851",
+      "unrealized": "0.0359999999999955",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "601.1210999999999955",
+      "pnl": "1.1210999999999955",
+      "cash_flow": "46.1301",
+      "max_position": "0.47",
+      "max_drawdown": "0.0044000000000088",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 83,
+        "fill_events": 57,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 57,
+        "cancel_requests": 25,
+        "terminal_CANCELED": 26,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "context_or_warmup": 5574,
+        "native_decisions": 559,
+        "late_sc_feedback": 55
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.553316094431232,
+          "observations": 55,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.5475367188446745,
+          "observations": 52,
+          "censored": 5
+        }
+      },
+      "native_fills": 57,
+      "native_fees": 0.0,
+      "trace_sha256": "921704716f3445422ebf51355b114c8f325633ad9113126c2a77e419e7ea9250",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6138,
+        "market_wakes": 3960,
+        "response_wakes": 82,
+        "timer_wakes": 81,
+        "busy_rechecks": 2015
+      },
+      "equity_sha256": "2038e54a366dce008531821bcb61ba87778d069d68ffc82e452fa857264bd38e"
+    },
+    "hjb_fixed": {
+      "position": "-2.40",
+      "wallet": "600.8160",
+      "realized": "0.8160",
+      "unrealized": "0.1919999999999760",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "601.0079999999999760",
+      "pnl": "1.0079999999999760",
+      "cash_flow": "241.0560",
+      "max_position": "2.40",
+      "max_drawdown": "0.0216000000000432",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 290,
+        "cancel_requests": 238,
+        "terminal_CANCELED": 240,
+        "fill_events": 50,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 50,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "fill_rows": 50,
+        "late_labels": 48
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.99738418892154,
+          "observations": 48,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.997440818937939,
+          "observations": 45,
+          "censored": 5
+        }
+      },
+      "native_fills": 50,
+      "native_fees": 0.0,
+      "trace_sha256": "542f5f7a28910a1dfc4a09ba9d7487279ab2d652ae5344c05595466eab6889ec",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6481,
+        "market_wakes": 3960,
+        "response_wakes": 289,
+        "timer_wakes": 169,
+        "busy_rechecks": 2063
+      },
+      "equity_sha256": "e9468d8434100f36343f655375acd32c04173276ed85255050752df900bb98e6"
+    },
+    "hjb_adaptive": {
+      "position": "-2.40",
+      "wallet": "600.852011520",
+      "realized": "0.8160",
+      "unrealized": "0.1919999999999760",
+      "fees": "-0.036011520",
+      "funding": "0",
+      "equity": "601.0440115199999760",
+      "pnl": "1.0440115199999760",
+      "cash_flow": "241.092011520",
+      "max_position": "2.40",
+      "max_drawdown": "0.0216000000000432",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 290,
+        "cancel_requests": 238,
+        "terminal_CANCELED": 240,
+        "fill_events": 50,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 50,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "fill_rows": 50,
+        "late_labels": 48
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.99738418892154,
+          "observations": 48,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.997440818937939,
+          "observations": 45,
+          "censored": 5
+        }
+      },
+      "native_fills": 50,
+      "native_fees": -0.03601152000000002,
+      "trace_sha256": "92671a7296de7020b443659e1febcf860cf9ab61a3a9d7d9000e239961aa7bac",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6481,
+        "market_wakes": 3960,
+        "response_wakes": 289,
+        "timer_wakes": 169,
+        "busy_rechecks": 2063
+      },
+      "equity_sha256": "e8c399fe57d09c426d7edecdcc1de0728d1a25aeb771e09dc4452de98627d0cc"
+    },
+    "hjb_budget50": {
+      "position": "-2.16",
+      "wallet": "600.8088",
+      "realized": "0.8088",
+      "unrealized": "0.1727999999999784",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "600.9815999999999784",
+      "pnl": "0.9815999999999784",
+      "cash_flow": "217.0248",
+      "max_position": "2.16",
+      "max_drawdown": "0.0216000000000432",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 291,
+        "cancel_requests": 238,
+        "terminal_CANCELED": 240,
+        "fill_events": 51,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 51,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "fill_rows": 51,
+        "late_labels": 49
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 7.670870684625208,
+          "observations": 49,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 7.736624441213605,
+          "observations": 46,
+          "censored": 5
+        }
+      },
+      "native_fills": 51,
+      "native_fees": 0.0,
+      "trace_sha256": "1cc20f724b56fdf6df89328eef8768cebfd0d003275823172b976cacf03569b2",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 6483,
+        "market_wakes": 3960,
+        "response_wakes": 290,
+        "timer_wakes": 170,
+        "busy_rechecks": 2063
+      },
+      "equity_sha256": "c1ab0a99ab54f465e109680e78360ac7498d70c76f7c5db6429ecbb59a12feb5"
+    },
+    "nh": {
+      "position": "3.64",
+      "wallet": "600.8847207651741495953934886",
+      "realized": "0.8847207651741495953934886632",
+      "unrealized": "0.1450792348258868046065115300",
+      "fees": "0.0000",
+      "funding": "0",
+      "equity": "601.0298000000000364000000001",
+      "pnl": "1.0298000000000364000000001",
+      "cash_flow": "-363.0430",
+      "max_position": "3.88",
+      "max_drawdown": "0.0363000000000726000000000",
+      "halt_reason": "",
+      "orders": {
+        "new_requests": 116,
+        "fill_events": 91,
+        "partial_fill_events": 0,
+        "terminal_FILLED": 91,
+        "cancel_requests": 23,
+        "terminal_CANCELED": 25,
+        "boundary_assumed_cancels": 2
+      },
+      "policy": {
+        "quote_choice_3": 11
+      },
+      "markouts": {
+        "1": {
+          "notional_weighted_bp": 4.013270352249851,
+          "observations": 89,
+          "censored": 2
+        },
+        "5": {
+          "notional_weighted_bp": 3.991932095134051,
+          "observations": 85,
+          "censored": 6
+        }
+      },
+      "native_fills": 91,
+      "native_fees": 0.0,
+      "trace_sha256": "11092bea80103754386e36e25e38165fa8c8f85dc5a2437fed0b7a287035b36b",
+      "invariant_failures": 0,
+      "counters": {
+        "decisions": 26033,
+        "market_wakes": 3960,
+        "response_wakes": 138,
+        "timer_wakes": 19905,
+        "busy_rechecks": 2030
+      },
+      "equity_sha256": "f36d435d6af3aeb722b7e6e37c9c0c412e47a54d6fc67bd553e49aa0cdad60ee"
+    }
+  },
+  "baseline_source_sha256": {
+    "paper_native_as.py": "ae2212be861f563397120b2208aedfddf789617c44954e43e81fc5cf6549abe1",
+    "fb_hjb_budget.py": "3a68ac0e062a44d387abf995af683eb80721d106467d6c2ca83fbb718f4aa4b8",
+    "markout_as.py": "c7f79c75a56b0480792781aa837e411624334edc360a3de006d66ae2b3065079",
+    "fb_hjb.py": "a6b382e4171bffe02e4abd77b220ce5fe0e7f1be39542ecf48c8993b44c9fa73",
+    "strategy.py": "4c71b9290e3adafeebdba56a9c8f171ba6ebf7f1df17d54226a412cf2b18d8c5",
+    "fb_hjb_family.py": "6059e545d9c1875564f508670772ce585fe01ffeb42e9d9e4472a4cc4c1325ec",
+    "adaptive_as.py": "b116a8d643d2c28168ffca3ba13e32742735cea2831930fac694b900cacd0a92",
+    "strategy_registry.py": "e5194d6a7f2cd5b61d28a2a89c06a7f9675b1baa0c17bf9e2a69c313d1c9fcc1",
+    "nh_quote_value/adapter.py": "195b9262ac571482a5c1822e571a8b2e42838d9c0607f6a1d7603a1f7290c534"
+  }
+}

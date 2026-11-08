@@ -1,0 +1,3 @@
+# Optional network dependency. Offline demo/replay use only Python's standard library.
+# Freeze the exact installed version with the deployment environment before acceptance.
+aiohttp>=3.9,<4

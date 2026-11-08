@@ -1,0 +1,1632 @@
+{
+  "version": "1.0.0",
+  "features": 202,
+  "legacy": 133,
+  "extended": 69,
+  "implementation": "app/factor_library/microstructure.py",
+  "factors": [
+    {
+      "index": 0,
+      "name": "spread_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 1,
+      "name": "spread_ticks",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 2,
+      "name": "microprice_bid_signed_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 3,
+      "name": "log_touch_total_notional",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 4,
+      "name": "log_bid_notional_l1",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 5,
+      "name": "log_ask_notional_l1",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 6,
+      "name": "log_bid_notional_l5",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 7,
+      "name": "log_ask_notional_l5",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 8,
+      "name": "log_bid_notional_l10",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 9,
+      "name": "log_ask_notional_l10",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 10,
+      "name": "bid_signed_imbalance_l1",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 11,
+      "name": "bid_signed_imbalance_l5",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 12,
+      "name": "bid_signed_imbalance_l10",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 13,
+      "name": "bid_touch_share_l10",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 14,
+      "name": "ask_touch_share_l10",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 15,
+      "name": "bid_l10_width_ticks",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 16,
+      "name": "ask_l10_width_ticks",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 17,
+      "name": "w100ms_log_trade_count_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 18,
+      "name": "w100ms_log_trade_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 19,
+      "name": "w100ms_bid_signed_trade_notional_imbalance",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 20,
+      "name": "w100ms_log_bid_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 21,
+      "name": "w100ms_log_ask_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 22,
+      "name": "w100ms_log_depth_batch_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 23,
+      "name": "w100ms_log_depth_row_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 24,
+      "name": "w100ms_bid_signed_ofi_scaled",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 25,
+      "name": "w100ms_realized_vol_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 26,
+      "name": "w100ms_bid_signed_return_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 27,
+      "name": "w100ms_log_bid_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 28,
+      "name": "w100ms_log_ask_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 29,
+      "name": "w100ms_log_bid_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 30,
+      "name": "w100ms_log_ask_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 31,
+      "name": "w100ms_log_bid_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 32,
+      "name": "w100ms_log_ask_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 33,
+      "name": "w100ms_log_bid_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 34,
+      "name": "w100ms_log_ask_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 35,
+      "name": "w100ms_log_bid_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 36,
+      "name": "w100ms_log_ask_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 37,
+      "name": "w100ms_log_bid_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 38,
+      "name": "w100ms_log_ask_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 39,
+      "name": "w100ms_log_bid_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 40,
+      "name": "w100ms_log_ask_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 41,
+      "name": "w100ms_bid_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 42,
+      "name": "w100ms_ask_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 43,
+      "name": "w100ms_log_bid_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 44,
+      "name": "w100ms_log_ask_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 45,
+      "name": "w100ms_bid_signed_touch_qty_change",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 46,
+      "name": "w1000ms_log_trade_count_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 47,
+      "name": "w1000ms_log_trade_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 48,
+      "name": "w1000ms_bid_signed_trade_notional_imbalance",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 49,
+      "name": "w1000ms_log_bid_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 50,
+      "name": "w1000ms_log_ask_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 51,
+      "name": "w1000ms_log_depth_batch_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 52,
+      "name": "w1000ms_log_depth_row_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 53,
+      "name": "w1000ms_bid_signed_ofi_scaled",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 54,
+      "name": "w1000ms_realized_vol_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 55,
+      "name": "w1000ms_bid_signed_return_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 56,
+      "name": "w1000ms_log_bid_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 57,
+      "name": "w1000ms_log_ask_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 58,
+      "name": "w1000ms_log_bid_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 59,
+      "name": "w1000ms_log_ask_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 60,
+      "name": "w1000ms_log_bid_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 61,
+      "name": "w1000ms_log_ask_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 62,
+      "name": "w1000ms_log_bid_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 63,
+      "name": "w1000ms_log_ask_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 64,
+      "name": "w1000ms_log_bid_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 65,
+      "name": "w1000ms_log_ask_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 66,
+      "name": "w1000ms_log_bid_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 67,
+      "name": "w1000ms_log_ask_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 68,
+      "name": "w1000ms_log_bid_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 69,
+      "name": "w1000ms_log_ask_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 70,
+      "name": "w1000ms_bid_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 71,
+      "name": "w1000ms_ask_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 72,
+      "name": "w1000ms_log_bid_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 73,
+      "name": "w1000ms_log_ask_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 74,
+      "name": "w1000ms_bid_signed_touch_qty_change",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 75,
+      "name": "w5000ms_log_trade_count_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 76,
+      "name": "w5000ms_log_trade_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 77,
+      "name": "w5000ms_bid_signed_trade_notional_imbalance",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 78,
+      "name": "w5000ms_log_bid_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 79,
+      "name": "w5000ms_log_ask_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 80,
+      "name": "w5000ms_log_depth_batch_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 81,
+      "name": "w5000ms_log_depth_row_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 82,
+      "name": "w5000ms_bid_signed_ofi_scaled",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 83,
+      "name": "w5000ms_realized_vol_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 84,
+      "name": "w5000ms_bid_signed_return_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 85,
+      "name": "w5000ms_log_bid_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 86,
+      "name": "w5000ms_log_ask_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 87,
+      "name": "w5000ms_log_bid_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 88,
+      "name": "w5000ms_log_ask_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 89,
+      "name": "w5000ms_log_bid_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 90,
+      "name": "w5000ms_log_ask_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 91,
+      "name": "w5000ms_log_bid_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 92,
+      "name": "w5000ms_log_ask_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 93,
+      "name": "w5000ms_log_bid_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 94,
+      "name": "w5000ms_log_ask_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 95,
+      "name": "w5000ms_log_bid_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 96,
+      "name": "w5000ms_log_ask_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 97,
+      "name": "w5000ms_log_bid_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 98,
+      "name": "w5000ms_log_ask_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 99,
+      "name": "w5000ms_bid_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 100,
+      "name": "w5000ms_ask_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 101,
+      "name": "w5000ms_log_bid_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 102,
+      "name": "w5000ms_log_ask_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 103,
+      "name": "w5000ms_bid_signed_touch_qty_change",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 104,
+      "name": "w30000ms_log_trade_count_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 105,
+      "name": "w30000ms_log_trade_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 106,
+      "name": "w30000ms_bid_signed_trade_notional_imbalance",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 107,
+      "name": "w30000ms_log_bid_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 108,
+      "name": "w30000ms_log_ask_aggressor_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 109,
+      "name": "w30000ms_log_depth_batch_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 110,
+      "name": "w30000ms_log_depth_row_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 111,
+      "name": "w30000ms_bid_signed_ofi_scaled",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 112,
+      "name": "w30000ms_realized_vol_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 113,
+      "name": "w30000ms_bid_signed_return_bp",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 114,
+      "name": "w30000ms_log_bid_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 115,
+      "name": "w30000ms_log_ask_add_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 116,
+      "name": "w30000ms_log_bid_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 117,
+      "name": "w30000ms_log_ask_decrease_ticks0_1_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 118,
+      "name": "w30000ms_log_bid_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 119,
+      "name": "w30000ms_log_ask_add_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 120,
+      "name": "w30000ms_log_bid_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 121,
+      "name": "w30000ms_log_ask_decrease_ticks2_4_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 122,
+      "name": "w30000ms_log_bid_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 123,
+      "name": "w30000ms_log_ask_add_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 124,
+      "name": "w30000ms_log_bid_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 125,
+      "name": "w30000ms_log_ask_decrease_ticks5_9_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 126,
+      "name": "w30000ms_log_bid_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 127,
+      "name": "w30000ms_log_ask_refill_proxy_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 128,
+      "name": "w30000ms_bid_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 129,
+      "name": "w30000ms_ask_refill_proxy_mean_ms",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 130,
+      "name": "w30000ms_log_bid_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 131,
+      "name": "w30000ms_log_ask_refill_proxy_notional_rate",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 132,
+      "name": "w30000ms_bid_signed_touch_qty_change",
+      "family": "legacy_public_market",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 133,
+      "name": "log_bid_touch_back_ratio_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 134,
+      "name": "log_ask_touch_back_ratio_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 135,
+      "name": "bid_uniformity_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 136,
+      "name": "ask_uniformity_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 137,
+      "name": "bid_hhi_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 138,
+      "name": "ask_hhi_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 139,
+      "name": "bid_outer_share_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 140,
+      "name": "ask_outer_share_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 141,
+      "name": "log_bid_touch_back_ratio_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 142,
+      "name": "log_ask_touch_back_ratio_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 143,
+      "name": "bid_uniformity_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 144,
+      "name": "ask_uniformity_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 145,
+      "name": "bid_hhi_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 146,
+      "name": "ask_hhi_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 147,
+      "name": "bid_outer_share_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 148,
+      "name": "ask_outer_share_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 149,
+      "name": "log_bid_touch_back_ratio_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 150,
+      "name": "log_ask_touch_back_ratio_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 151,
+      "name": "bid_uniformity_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 152,
+      "name": "ask_uniformity_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 153,
+      "name": "bid_hhi_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 154,
+      "name": "ask_hhi_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 155,
+      "name": "bid_outer_share_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 156,
+      "name": "ask_outer_share_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 157,
+      "name": "log_bid_notional_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 158,
+      "name": "log_ask_notional_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 159,
+      "name": "imbalance_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 160,
+      "name": "depth_symmetry_l1",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 161,
+      "name": "depth_symmetry_l3",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 162,
+      "name": "depth_symmetry_l5",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 163,
+      "name": "depth_symmetry_l10",
+      "family": "multi_level_shape",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 164,
+      "name": "w500ms_delta_bid_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 165,
+      "name": "w500ms_delta_ask_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 166,
+      "name": "w500ms_delta_bid_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 167,
+      "name": "w500ms_delta_ask_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 168,
+      "name": "w500ms_delta_bid_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 169,
+      "name": "w500ms_delta_ask_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 170,
+      "name": "w500ms_delta_log_bid_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 171,
+      "name": "w500ms_delta_log_ask_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 172,
+      "name": "w500ms_delta_imbalance_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 173,
+      "name": "w500ms_delta_depth_symmetry_l10",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 174,
+      "name": "w1000ms_delta_bid_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 175,
+      "name": "w1000ms_delta_ask_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 176,
+      "name": "w1000ms_delta_bid_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 177,
+      "name": "w1000ms_delta_ask_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 178,
+      "name": "w1000ms_delta_bid_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 179,
+      "name": "w1000ms_delta_ask_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 180,
+      "name": "w1000ms_delta_log_bid_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 181,
+      "name": "w1000ms_delta_log_ask_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 182,
+      "name": "w1000ms_delta_imbalance_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 183,
+      "name": "w1000ms_delta_depth_symmetry_l10",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 184,
+      "name": "w5000ms_delta_bid_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 185,
+      "name": "w5000ms_delta_ask_uniformity_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 186,
+      "name": "w5000ms_delta_bid_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 187,
+      "name": "w5000ms_delta_ask_hhi_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 188,
+      "name": "w5000ms_delta_bid_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 189,
+      "name": "w5000ms_delta_ask_outer_share_l5",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 190,
+      "name": "w5000ms_delta_log_bid_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 191,
+      "name": "w5000ms_delta_log_ask_notional_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 192,
+      "name": "w5000ms_delta_imbalance_l3",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 193,
+      "name": "w5000ms_delta_depth_symmetry_l10",
+      "family": "past_shape_change",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 194,
+      "name": "w500ms_return_bp",
+      "family": "flow_500ms",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 195,
+      "name": "w500ms_log_trade_notional_rate",
+      "family": "flow_500ms",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 196,
+      "name": "w500ms_trade_imbalance",
+      "family": "flow_500ms",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 197,
+      "name": "w500ms_ofi_scaled",
+      "family": "flow_500ms",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 198,
+      "name": "w500ms_realized_vol_bp",
+      "family": "flow_500ms",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 199,
+      "name": "volatility_rate_ratio_100ms_5s",
+      "family": "volatility_ratio",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 200,
+      "name": "bid_fragility_interaction",
+      "family": "interaction",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    },
+    {
+      "index": 201,
+      "name": "ask_fragility_interaction",
+      "family": "interaction",
+      "input": "received public L2/trades only",
+      "private_data": false,
+      "future_labels": false
+    }
+  ],
+  "excluded_aliases": {
+    "OBI": "(signed imbalance+1)/2",
+    "OBS": "signed imbalance",
+    "QACR/QADR/QBR": "true private queue unavailable",
+    "future PFD/Markout": "label only",
+    "FIR/IS": "private policy-state layer, not public return classifier"
+  }
+}

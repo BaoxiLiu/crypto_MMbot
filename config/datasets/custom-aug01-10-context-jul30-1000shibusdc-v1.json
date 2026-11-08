@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "custom-aug01-10-context-jul30-1000shibusdc-v1",
+  "symbol": "1000SHIBUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-11",
+    "timezone": "UTC"
+  },
+  "cache_key": "bb2be0fac81006d3c0b1",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/1000SHIBUSDC/bb2be0fac81006d3c0b1",
+  "cache_manifest_sha256": "6ac38194d0071a2e7db38d9bc6d9509167c6cd8d2ed160379248d85e64387442",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-04",
+  "source": "config/profiles/data/inputs/custom-aug01-10-context-jul30-1000shibusdc-v1.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

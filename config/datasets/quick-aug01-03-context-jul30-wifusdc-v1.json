@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-wifusdc-v1",
+  "symbol": "WIFUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "faae9ac37ba7d9a5572b",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/WIFUSDC/faae9ac37ba7d9a5572b",
+  "cache_manifest_sha256": "818e6a8e8cb1f940d5187efb43c4548c0c2195e3ca9c99d0da3a69cd4b05b75c",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/WIFUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

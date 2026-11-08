@@ -1,0 +1,125 @@
+{
+  "schema_version": 2,
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "fee_scenarios": [
+    {
+      "id": "maker0",
+      "maker_fee": "0"
+    },
+    {
+      "id": "maker_rebate03",
+      "maker_fee": "-0.00003"
+    }
+  ],
+  "observations": {
+    "timezone": "UTC",
+    "markout_horizons_ms": [
+      100,
+      500,
+      1000,
+      5000,
+      10000,
+      30000,
+      60000
+    ],
+    "markout_anchor": "local_fill_receipt",
+    "markout_reference": "first_observed_mid_at_or_after",
+    "max_markout_lag_ms": 250,
+    "retain_midpoints": false,
+    "order_placements": true,
+    "order_lifecycle": false
+  },
+  "outputs": {
+    "format": "html",
+    "retention": "final_only",
+    "runs_root": "data/experiments",
+    "reports_root": "doc/reports/experiments",
+    "required": [
+      "pnl_curve",
+      "daily_volume",
+      "total_volume",
+      "markouts",
+      "fills",
+      "effective_config",
+      "input_identity",
+      "validation"
+    ]
+  },
+  "resources": {
+    "workers": 2
+  },
+  "name": "as-s1-module-example",
+  "stage": "custom",
+  "symbols": [
+    "BTCUSDC",
+    "ETHUSDC"
+  ],
+  "profiles": {
+    "execution": "config/profiles/execution/queue50_maker0_taker4_v1.json",
+    "risk": "config/profiles/risk/exposure1000_v1.json"
+  },
+  "datasets": {
+    "BTCUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/dfa79b1366f86b145b88",
+      "input_spec": "config/profiles/data/quick_inputs/BTCUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/BTCUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "62808.36862136",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "ETHUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/61913f2d54b4f66d2b84",
+      "input_spec": "config/profiles/data/quick_inputs/ETHUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/ETHUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "1860.15660118",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    }
+  },
+  "rules": "config/market/exchange-info.json",
+  "strategy_parameters": {
+    "BTCUSDC": "config/strategies/accounts/BTCUSDC.json",
+    "ETHUSDC": "config/strategies/accounts/ETHUSDC.json"
+  },
+  "strategies": [
+    {
+      "id": "as_base",
+      "profile": "config/strategies/paper_native_as_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1785801600000000000,
+        "mode": "as_base"
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "s1_without_markout",
+      "profile": "config/strategies/paper_native_as_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1785801600000000000,
+        "mode": "paper_s1_sc0",
+        "min_half_spread_ticks": 2,
+        "volatility_adjustment": true,
+        "markout_adjustment": false
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    }
+  ]
+}

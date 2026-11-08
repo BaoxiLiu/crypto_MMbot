@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "fit_start_utc": "2026-09-18T00:00:00+00:00",
+  "fit_end_exclusive_utc": "2026-09-18T01:00:00+00:00",
+  "formula": "max(1 USDC, median of 60 complete-minute notional totals / 5)",
+  "quotas_usdc": {
+    "BTCUSDC": 160230.83728,
+    "SOLUSDC": 19979.581700000002,
+    "SUIUSDC": 1059.787888,
+    "UNIUSDC": 3176.7666,
+    "DOGEUSDC": 1339.3459070000001,
+    "1000SHIBUSDC": 61.086286699999995,
+    "WIFUSDC": 36.249023,
+    "ETHUSDC": 111591.70267199988,
+    "1000PEPEUSDC": 198.1151555,
+    "LTCUSDC": 716.9083130000001,
+    "CRVUSDC": 139.67248899999998,
+    "XRPUSDC": 5769.1310159999975,
+    "1000BONKUSDC": 55.11637499999999
+  },
+  "sources": {
+    "BTCUSDC": {
+      "sha256": "2a6abd477002a9221987f96651042ec6f212b8cf01747e65e760c1990be352f5",
+      "median_minute_notional": 801154.1864
+    },
+    "SOLUSDC": {
+      "sha256": "24150000afc651da2b3305edac00c89e662da9419e4b76d6bae105a7e0ca9877",
+      "median_minute_notional": 99897.90850000002
+    },
+    "SUIUSDC": {
+      "sha256": "21e606ebd707a2feb6a9a77fc20f48d4d2d2b36ec9776a3813c9e08eb146c5bb",
+      "median_minute_notional": 5298.93944
+    },
+    "UNIUSDC": {
+      "sha256": "8e994f7a7e466d778050cd87912863504f368437d91f50a22284da0495501045",
+      "median_minute_notional": 15883.832999999999
+    },
+    "DOGEUSDC": {
+      "sha256": "6baebe1c05d769388613eac0fb7282c52f677d5c3314a44a428f587a1a8e1610",
+      "median_minute_notional": 6696.729535
+    },
+    "1000SHIBUSDC": {
+      "sha256": "17aa903de945597a48421fa232870631c80a8045a8a01913cc8e20240d2a002b",
+      "median_minute_notional": 305.43143349999997
+    },
+    "WIFUSDC": {
+      "sha256": "045be3378e81f6649617ee76d2413e4ba9b817b4bd8e149d6e8faebac5732c62",
+      "median_minute_notional": 181.245115
+    },
+    "ETHUSDC": {
+      "sha256": "a9217cca801594dfd4f715a8b7e6a10bd17e6d299dbaf513dce1c187c21acd71",
+      "median_minute_notional": 557958.5133599994
+    },
+    "1000PEPEUSDC": {
+      "sha256": "7fd3746aa1d018a1ab408478f61e863978b0c6d8de3682e51ab1ecc086289b0c",
+      "median_minute_notional": 990.5757775
+    },
+    "LTCUSDC": {
+      "sha256": "d1f72781c7282e2aefc6433476ae8c28e66f8642c1b6776fbef72b90efcda941",
+      "median_minute_notional": 3584.5415650000004
+    },
+    "CRVUSDC": {
+      "sha256": "854d28452523310119076612c68e362d40ffca3b0d7047c28112c730a959eb13",
+      "median_minute_notional": 698.362445
+    },
+    "XRPUSDC": {
+      "sha256": "1484c15fa5719caac7f3dfdb97e90c01797c1c1307eb0c93212e85f476a6aeff",
+      "median_minute_notional": 28845.65507999999
+    },
+    "1000BONKUSDC": {
+      "sha256": "334ba3f8af8fcf1b10860ca5f9b6e5995530b96683867e5a11ccb7fff523d5c4",
+      "median_minute_notional": 275.58187499999997
+    }
+  },
+  "status": "engineering calibration only; model training must refit solely inside training folds"
+}

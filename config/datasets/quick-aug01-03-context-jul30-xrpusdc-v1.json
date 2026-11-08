@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-xrpusdc-v1",
+  "symbol": "XRPUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "ac9fad0357b7df70e545",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/XRPUSDC/ac9fad0357b7df70e545",
+  "cache_manifest_sha256": "9a443d0d6b38698fb4aa586af0f0e941f3fc110cddddc32ce053e98b35d21544",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/XRPUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

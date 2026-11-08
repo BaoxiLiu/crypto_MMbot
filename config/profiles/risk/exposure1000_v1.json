@@ -1,0 +1,10 @@
+{
+  "account": {
+    "initial_cash": "600",
+    "max_notional": "1000"
+  },
+  "loss_stops": {
+    "daily_loss": null,
+    "drawdown_limit": null
+  }
+}

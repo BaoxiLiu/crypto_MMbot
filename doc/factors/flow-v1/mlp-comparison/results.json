@@ -1,0 +1,1043 @@
+{
+  "status": "quick_exploratory_comparison",
+  "inputs": "8 controls + 16 flow factors + coin indicators",
+  "targets": [
+    "return_5s_bp",
+    "future_rv_30s_bp"
+  ],
+  "paired_test_rows": true,
+  "results": [
+    {
+      "target": "return_5s_bp",
+      "model": "original_native_tree",
+      "seed": 42,
+      "mse_gain_vs_original_tree_percent": 0.0,
+      "gain_ci95": [
+        0.0,
+        0.0
+      ],
+      "equal_coin_day_mse": 14.669146163677548,
+      "equal_coin_day_mae": 2.337483650689595,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.33059542096571,
+          "mse_gain_percent": 0.0
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.03654417309259,
+          "mse_gain_percent": 0.0
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.093011568092347,
+          "mse_gain_percent": 0.0
+        },
+        "BTCUSDC": {
+          "mse": 1.4259847585082082,
+          "mse_gain_percent": 0.0
+        },
+        "CRVUSDC": {
+          "mse": 24.601511143677424,
+          "mse_gain_percent": 0.0
+        },
+        "DOGEUSDC": {
+          "mse": 10.432229842077302,
+          "mse_gain_percent": 0.0
+        },
+        "ETHUSDC": {
+          "mse": 2.744411564400972,
+          "mse_gain_percent": 0.0
+        },
+        "LTCUSDC": {
+          "mse": 7.785969799362343,
+          "mse_gain_percent": 0.0
+        },
+        "SOLUSDC": {
+          "mse": 6.228272514771109,
+          "mse_gain_percent": 0.0
+        },
+        "SUIUSDC": {
+          "mse": 29.96512307417496,
+          "mse_gain_percent": 0.0
+        },
+        "UNIUSDC": {
+          "mse": 17.067656612311403,
+          "mse_gain_percent": 0.0
+        },
+        "WIFUSDC": {
+          "mse": 25.069880089750065,
+          "mse_gain_percent": 0.0
+        },
+        "XRPUSDC": {
+          "mse": 7.917709566623674,
+          "mse_gain_percent": 0.0
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 7,
+      "valid_mse": 10.220801474542712,
+      "training_seconds": 5.538741874974221,
+      "mse_gain_vs_original_tree_percent": 0.004431094977682742,
+      "gain_ci95": [
+        -0.030297436468935367,
+        0.03407103356871527
+      ],
+      "equal_coin_day_mse": 14.66849615987862,
+      "equal_coin_day_mae": 2.3387717444909186,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.335378472139045,
+          "mse_gain_percent": -0.0157697239600761
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.0329604818355,
+          "mse_gain_percent": 0.022347029499687757
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.097009190441522,
+          "mse_gain_percent": -0.03603730442933592
+        },
+        "BTCUSDC": {
+          "mse": 1.4268622425791582,
+          "mse_gain_percent": -0.06153530503846242
+        },
+        "CRVUSDC": {
+          "mse": 24.5941586477837,
+          "mse_gain_percent": 0.029886358812609082
+        },
+        "DOGEUSDC": {
+          "mse": 10.43301213862806,
+          "mse_gain_percent": -0.007498843129423028
+        },
+        "ETHUSDC": {
+          "mse": 2.7450433987074887,
+          "mse_gain_percent": -0.023022578490500545
+        },
+        "LTCUSDC": {
+          "mse": 7.7868526732440015,
+          "mse_gain_percent": -0.01133929239913986
+        },
+        "SOLUSDC": {
+          "mse": 6.229640360141078,
+          "mse_gain_percent": -0.02196187412681124
+        },
+        "SUIUSDC": {
+          "mse": 29.957382013585732,
+          "mse_gain_percent": 0.02583356847915133
+        },
+        "UNIUSDC": {
+          "mse": 17.067694334170547,
+          "mse_gain_percent": -0.00022101369860375467
+        },
+        "WIFUSDC": {
+          "mse": 25.066904935998227,
+          "mse_gain_percent": 0.011867443087825606
+        },
+        "XRPUSDC": {
+          "mse": 7.917551189168032,
+          "mse_gain_percent": 0.0020002938262519564
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "mlp_64_32",
+      "seed": 7,
+      "valid_mse": 10.347073416368202,
+      "best_epoch": 7,
+      "epochs_run": 12,
+      "validation_losses": [
+        10.559597470718847,
+        10.425182037116336,
+        10.384132456861128,
+        10.363273968887022,
+        10.353218903701475,
+        10.348121401344011,
+        10.347073416368202,
+        10.347505255945556,
+        10.347416920272465,
+        10.349595928772224,
+        10.355112326547543,
+        10.36347851962017
+      ],
+      "training_seconds": 3.833034458104521,
+      "mse_gain_vs_original_tree_percent": -0.9879726472878914,
+      "gain_ci95": [
+        -1.915283857470991,
+        -0.619715706597146
+      ],
+      "equal_coin_day_mse": 14.814073315365363,
+      "equal_coin_day_mae": 2.3873869846374127,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.504002134688232,
+          "mse_gain_percent": -0.5717220889196769
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.176097201326264,
+          "mse_gain_percent": -0.8702188372219725
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.22016300095081,
+          "mse_gain_percent": -1.1462300573470816
+        },
+        "BTCUSDC": {
+          "mse": 1.5931954364379401,
+          "mse_gain_percent": -11.725979322854698
+        },
+        "CRVUSDC": {
+          "mse": 24.71603233810494,
+          "mse_gain_percent": -0.4655047153757846
+        },
+        "DOGEUSDC": {
+          "mse": 10.536121970601943,
+          "mse_gain_percent": -0.9958765297290874
+        },
+        "ETHUSDC": {
+          "mse": 2.9339547273216637,
+          "mse_gain_percent": -6.906513781655178
+        },
+        "LTCUSDC": {
+          "mse": 7.940300895285765,
+          "mse_gain_percent": -1.9821692082091242
+        },
+        "SOLUSDC": {
+          "mse": 6.359153208611226,
+          "mse_gain_percent": -2.1013963908887687
+        },
+        "SUIUSDC": {
+          "mse": 30.07978610051389,
+          "mse_gain_percent": -0.38265494873855016
+        },
+        "UNIUSDC": {
+          "mse": 17.23895446396308,
+          "mse_gain_percent": -1.003640133749317
+        },
+        "WIFUSDC": {
+          "mse": 25.249479339230046,
+          "mse_gain_percent": -0.7163945293596006
+        },
+        "XRPUSDC": {
+          "mse": 8.035712282713911,
+          "mse_gain_percent": -1.4903642915580833
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 42,
+      "valid_mse": 10.219082273177788,
+      "training_seconds": 5.225307291955687,
+      "mse_gain_vs_original_tree_percent": 0.015161889374902185,
+      "gain_ci95": [
+        -0.009972193358543664,
+        0.05750199603961227
+      ],
+      "equal_coin_day_mse": 14.666922043963968,
+      "equal_coin_day_mae": 2.3379085114255136,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.302389206587133,
+          "mse_gain_percent": 0.09299591381935318
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.040131435238294,
+          "mse_gain_percent": -0.022369296695000013
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.089874305997187,
+          "mse_gain_percent": 0.0282814281397159
+        },
+        "BTCUSDC": {
+          "mse": 1.4256541304098682,
+          "mse_gain_percent": 0.02318594896384677
+        },
+        "CRVUSDC": {
+          "mse": 24.609311608167634,
+          "mse_gain_percent": -0.03170725751216364
+        },
+        "DOGEUSDC": {
+          "mse": 10.434540675950073,
+          "mse_gain_percent": -0.022150910282390506
+        },
+        "ETHUSDC": {
+          "mse": 2.743474412317851,
+          "mse_gain_percent": 0.03414765100385835
+        },
+        "LTCUSDC": {
+          "mse": 7.786523310476079,
+          "mse_gain_percent": -0.007109083749356191
+        },
+        "SOLUSDC": {
+          "mse": 6.227391083244341,
+          "mse_gain_percent": 0.01415210276488965
+        },
+        "SUIUSDC": {
+          "mse": 29.95336405198819,
+          "mse_gain_percent": 0.039242362387983294
+        },
+        "UNIUSDC": {
+          "mse": 17.065894507983533,
+          "mse_gain_percent": 0.010324231192928409
+        },
+        "WIFUSDC": {
+          "mse": 25.07436480002418,
+          "mse_gain_percent": -0.017888838151843254
+        },
+        "XRPUSDC": {
+          "mse": 7.917073043147197,
+          "mse_gain_percent": 0.008039237498173354
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "mlp_64_32",
+      "seed": 42,
+      "valid_mse": 10.30093598667009,
+      "best_epoch": 5,
+      "epochs_run": 10,
+      "validation_losses": [
+        10.369112624591748,
+        10.328271967722188,
+        10.311602654612928,
+        10.302701426557357,
+        10.30093598667009,
+        10.302592833272326,
+        10.305259600593427,
+        10.313961357211058,
+        10.318924817165332,
+        10.326603918993836
+      ],
+      "training_seconds": 3.1772335420828313,
+      "mse_gain_vs_original_tree_percent": -0.6010727626370358,
+      "gain_ci95": [
+        -1.2301375440384592,
+        -0.3553629975319927
+      ],
+      "equal_coin_day_mse": 14.757318405778829,
+      "equal_coin_day_mae": 2.3644434997263266,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.55335958669004,
+          "mse_gain_percent": -0.7344536519396675
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.14956114115522,
+          "mse_gain_percent": -0.7047464019851606
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.19373244565258,
+          "mse_gain_percent": -0.9079669388423269
+        },
+        "BTCUSDC": {
+          "mse": 1.4863054775330735,
+          "mse_gain_percent": -4.2301096603563835
+        },
+        "CRVUSDC": {
+          "mse": 24.704377541681133,
+          "mse_gain_percent": -0.4181304042786225
+        },
+        "DOGEUSDC": {
+          "mse": 10.492674734724305,
+          "mse_gain_percent": -0.579405300324248
+        },
+        "ETHUSDC": {
+          "mse": 2.841686514943177,
+          "mse_gain_percent": -3.5444738611366917
+        },
+        "LTCUSDC": {
+          "mse": 7.830840009880006,
+          "mse_gain_percent": -0.5762957174755297
+        },
+        "SOLUSDC": {
+          "mse": 6.2704440943360185,
+          "mse_gain_percent": -0.6770991388847314
+        },
+        "SUIUSDC": {
+          "mse": 30.02416719227591,
+          "mse_gain_percent": -0.19704280190938356
+        },
+        "UNIUSDC": {
+          "mse": 17.139797034132,
+          "mse_gain_percent": -0.4226732670995878
+        },
+        "WIFUSDC": {
+          "mse": 25.219123687870013,
+          "mse_gain_percent": -0.5953103787718849
+        },
+        "XRPUSDC": {
+          "mse": 7.939069814251291,
+          "mse_gain_percent": -0.2697781150960575
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 2026,
+      "valid_mse": 10.220963427575473,
+      "training_seconds": 5.2656599580077454,
+      "mse_gain_vs_original_tree_percent": 0.008946096208063616,
+      "gain_ci95": [
+        -0.008185665721501968,
+        0.03872089481665392
+      ],
+      "equal_coin_day_mse": 14.667833847748843,
+      "equal_coin_day_mae": 2.337836399080531,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.312081903319417,
+          "mse_gain_percent": 0.06103908409756109
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.03703588176653,
+          "mse_gain_percent": -0.003066176032901985
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.09053906149246,
+          "mse_gain_percent": 0.02228886704669424
+        },
+        "BTCUSDC": {
+          "mse": 1.4238006248774044,
+          "mse_gain_percent": 0.15316668833744393
+        },
+        "CRVUSDC": {
+          "mse": 24.609331403975435,
+          "mse_gain_percent": -0.03178772333268279
+        },
+        "DOGEUSDC": {
+          "mse": 10.434631212281047,
+          "mse_gain_percent": -0.023018762432362085
+        },
+        "ETHUSDC": {
+          "mse": 2.7426374532178976,
+          "mse_gain_percent": 0.06464450179729897
+        },
+        "LTCUSDC": {
+          "mse": 7.786493123304834,
+          "mse_gain_percent": -0.0067213713381439315
+        },
+        "SOLUSDC": {
+          "mse": 6.225227845014851,
+          "mse_gain_percent": 0.04888465861178691
+        },
+        "SUIUSDC": {
+          "mse": 29.958674723019634,
+          "mse_gain_percent": 0.021519521676469065
+        },
+        "UNIUSDC": {
+          "mse": 17.068180143848206,
+          "mse_gain_percent": -0.0030673896756608712
+        },
+        "WIFUSDC": {
+          "mse": 25.077094937542892,
+          "mse_gain_percent": -0.02877894815211801
+        },
+        "XRPUSDC": {
+          "mse": 7.916111707074348,
+          "mse_gain_percent": 0.020180830527820343
+        }
+      }
+    },
+    {
+      "target": "return_5s_bp",
+      "model": "mlp_64_32",
+      "seed": 2026,
+      "valid_mse": 10.299415500221688,
+      "best_epoch": 4,
+      "epochs_run": 9,
+      "validation_losses": [
+        10.35974399595579,
+        10.316816198184563,
+        10.303704764234903,
+        10.299415500221688,
+        10.3013584143551,
+        10.30472085087845,
+        10.310929172135372,
+        10.316196876815477,
+        10.32212233942863
+      ],
+      "training_seconds": 3.250646375003271,
+      "mse_gain_vs_original_tree_percent": -0.6396904100867563,
+      "gain_ci95": [
+        -1.1845686951118055,
+        -0.404155210911569
+      ],
+      "equal_coin_day_mse": 14.762983284928202,
+      "equal_coin_day_mae": 2.3671790779281037,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 30.45342557984092,
+          "mse_gain_percent": -0.40497114273696466
+        },
+        "1000PEPEUSDC": {
+          "mse": 16.151016124145595,
+          "mse_gain_percent": -0.7138193230251909
+        },
+        "1000SHIBUSDC": {
+          "mse": 11.198958526825747,
+          "mse_gain_percent": -0.9550784120530691
+        },
+        "BTCUSDC": {
+          "mse": 1.5299929461915334,
+          "mse_gain_percent": -7.2937797590581
+        },
+        "CRVUSDC": {
+          "mse": 24.72190429239192,
+          "mse_gain_percent": -0.48937298205535595
+        },
+        "DOGEUSDC": {
+          "mse": 10.520161918475297,
+          "mse_gain_percent": -0.8428886031951774
+        },
+        "ETHUSDC": {
+          "mse": 2.8382638770393314,
+          "mse_gain_percent": -3.419760864433049
+        },
+        "LTCUSDC": {
+          "mse": 7.878510351733212,
+          "mse_gain_percent": -1.1885552443119876
+        },
+        "SOLUSDC": {
+          "mse": 6.279850279511451,
+          "mse_gain_percent": -0.8281231211065215
+        },
+        "SUIUSDC": {
+          "mse": 30.05599427264317,
+          "mse_gain_percent": -0.30325655010081787
+        },
+        "UNIUSDC": {
+          "mse": 17.17371004508027,
+          "mse_gain_percent": -0.6213707902487777
+        },
+        "WIFUSDC": {
+          "mse": 25.167142024030717,
+          "mse_gain_percent": -0.38796330071167123
+        },
+        "XRPUSDC": {
+          "mse": 7.949852466157459,
+          "mse_gain_percent": -0.40596209375096065
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "original_native_tree",
+      "seed": 42,
+      "mse_gain_vs_original_tree_percent": 0.0,
+      "gain_ci95": [
+        0.0,
+        0.0
+      ],
+      "equal_coin_day_mse": 0.4918838460434741,
+      "equal_coin_day_mae": 0.4999894299866733,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.1105561624114049,
+          "mse_gain_percent": 0.0
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.40084336393966774,
+          "mse_gain_percent": 0.0
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.4047180212798042,
+          "mse_gain_percent": 0.0
+        },
+        "BTCUSDC": {
+          "mse": 0.10156723020672165,
+          "mse_gain_percent": 0.0
+        },
+        "CRVUSDC": {
+          "mse": 1.1401544806393609,
+          "mse_gain_percent": 0.0
+        },
+        "DOGEUSDC": {
+          "mse": 0.3250586251481219,
+          "mse_gain_percent": 0.0
+        },
+        "ETHUSDC": {
+          "mse": 0.11958917721701814,
+          "mse_gain_percent": 0.0
+        },
+        "LTCUSDC": {
+          "mse": 0.34654882608243937,
+          "mse_gain_percent": 0.0
+        },
+        "SOLUSDC": {
+          "mse": 0.19504244484507458,
+          "mse_gain_percent": 0.0
+        },
+        "SUIUSDC": {
+          "mse": 0.7152241828903431,
+          "mse_gain_percent": 0.0
+        },
+        "UNIUSDC": {
+          "mse": 0.6227701217336706,
+          "mse_gain_percent": 0.0
+        },
+        "WIFUSDC": {
+          "mse": 0.6787685623345225,
+          "mse_gain_percent": 0.0
+        },
+        "XRPUSDC": {
+          "mse": 0.23364879983701367,
+          "mse_gain_percent": 0.0
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 7,
+      "valid_mse": 0.4175598488190722,
+      "training_seconds": 5.511591708986089,
+      "mse_gain_vs_original_tree_percent": 0.39357309278361274,
+      "gain_ci95": [
+        0.25091206732674226,
+        0.5903013967216131
+      ],
+      "equal_coin_day_mse": 0.48994792357769784,
+      "equal_coin_day_mae": 0.498735526653026,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.1015760407389632,
+          "mse_gain_percent": 0.8086148162865252
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.39909109071429827,
+          "mse_gain_percent": 0.43714662209880367
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.3939709140815461,
+          "mse_gain_percent": 2.655455559965795
+        },
+        "BTCUSDC": {
+          "mse": 0.10199822061072324,
+          "mse_gain_percent": -0.4243400190439235
+        },
+        "CRVUSDC": {
+          "mse": 1.1397170203292324,
+          "mse_gain_percent": 0.03836851212330156
+        },
+        "DOGEUSDC": {
+          "mse": 0.3232905735092885,
+          "mse_gain_percent": 0.5439177742254051
+        },
+        "ETHUSDC": {
+          "mse": 0.11802842996077272,
+          "mse_gain_percent": 1.3050907218912837
+        },
+        "LTCUSDC": {
+          "mse": 0.34357404364376637,
+          "mse_gain_percent": 0.8584021109814219
+        },
+        "SOLUSDC": {
+          "mse": 0.1963796233125755,
+          "mse_gain_percent": -0.6855833193452143
+        },
+        "SUIUSDC": {
+          "mse": 0.7116225339677112,
+          "mse_gain_percent": 0.5035692316885789
+        },
+        "UNIUSDC": {
+          "mse": 0.6253407243175586,
+          "mse_gain_percent": -0.41276909314979887
+        },
+        "WIFUSDC": {
+          "mse": 0.679909653468074,
+          "mse_gain_percent": -0.16811195993326783
+        },
+        "XRPUSDC": {
+          "mse": 0.23482413785556164,
+          "mse_gain_percent": -0.5030361890871458
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "mlp_64_32",
+      "seed": 7,
+      "valid_mse": 0.41169196430209304,
+      "best_epoch": 1,
+      "epochs_run": 6,
+      "validation_losses": [
+        0.41169196430209304,
+        0.4150414304301433,
+        0.41780117826233837,
+        0.41963558770026804,
+        0.4211351522278841,
+        0.420941691818666
+      ],
+      "training_seconds": 1.9657593331066892,
+      "mse_gain_vs_original_tree_percent": 1.3838301920523557,
+      "gain_ci95": [
+        -2.449951158879739,
+        6.406947686397223
+      ],
+      "equal_coin_day_mse": 0.4850770088720962,
+      "equal_coin_day_mae": 0.4889096914653011,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.0829636256737982,
+          "mse_gain_percent": 2.4845692340037644
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.3942888931547145,
+          "mse_gain_percent": 1.635170087520716
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.37850451154993187,
+          "mse_gain_percent": 6.476981095870077
+        },
+        "BTCUSDC": {
+          "mse": 0.10719478632375454,
+          "mse_gain_percent": -5.54072027520985
+        },
+        "CRVUSDC": {
+          "mse": 1.139966370274036,
+          "mse_gain_percent": 0.01649867351479161
+        },
+        "DOGEUSDC": {
+          "mse": 0.2906040331784672,
+          "mse_gain_percent": 10.599500922011988
+        },
+        "ETHUSDC": {
+          "mse": 0.13436783106156938,
+          "mse_gain_percent": -12.35785226428346
+        },
+        "LTCUSDC": {
+          "mse": 0.34474993360567946,
+          "mse_gain_percent": 0.5190877421503581
+        },
+        "SOLUSDC": {
+          "mse": 0.19794628318325805,
+          "mse_gain_percent": -1.4888237996042553
+        },
+        "SUIUSDC": {
+          "mse": 0.7266356407772964,
+          "mse_gain_percent": -1.5955078365551976
+        },
+        "UNIUSDC": {
+          "mse": 0.6504443924501447,
+          "mse_gain_percent": -4.443737705244164
+        },
+        "WIFUSDC": {
+          "mse": 0.6485979192657721,
+          "mse_gain_percent": 4.444908727797144
+        },
+        "XRPUSDC": {
+          "mse": 0.20973689483882837,
+          "mse_gain_percent": 10.234122758116248
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 42,
+      "valid_mse": 0.4171483455076971,
+      "training_seconds": 5.449992917012423,
+      "mse_gain_vs_original_tree_percent": 0.08982736202444058,
+      "gain_ci95": [
+        -0.32364154022445474,
+        0.4101800840943139
+      ],
+      "equal_coin_day_mse": 0.4914419997603489,
+      "equal_coin_day_mae": 0.49931240733052157,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.1002716076381533,
+          "mse_gain_percent": 0.9260724600294111
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.4075053299974432,
+          "mse_gain_percent": -1.6619873639165907
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.39667833127520474,
+          "mse_gain_percent": 1.9864917255664254
+        },
+        "BTCUSDC": {
+          "mse": 0.10055086792909686,
+          "mse_gain_percent": 1.0006793289096987
+        },
+        "CRVUSDC": {
+          "mse": 1.1429499794399323,
+          "mse_gain_percent": -0.24518596804564335
+        },
+        "DOGEUSDC": {
+          "mse": 0.3141942673171946,
+          "mse_gain_percent": 3.342276435820361
+        },
+        "ETHUSDC": {
+          "mse": 0.11742100541716119,
+          "mse_gain_percent": 1.8130167380634954
+        },
+        "LTCUSDC": {
+          "mse": 0.3409736127420069,
+          "mse_gain_percent": 1.6087814820951705
+        },
+        "SOLUSDC": {
+          "mse": 0.19604743998191224,
+          "mse_gain_percent": -0.5152699647689224
+        },
+        "SUIUSDC": {
+          "mse": 0.7161654766028703,
+          "mse_gain_percent": -0.13160820551723246
+        },
+        "UNIUSDC": {
+          "mse": 0.6352431602066061,
+          "mse_gain_percent": -2.0028318696813767
+        },
+        "WIFUSDC": {
+          "mse": 0.6856197239662792,
+          "mse_gain_percent": -1.0093516423614488
+        },
+        "XRPUSDC": {
+          "mse": 0.2351251943706754,
+          "mse_gain_percent": -0.631886204719051
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "mlp_64_32",
+      "seed": 42,
+      "valid_mse": 0.40284052518918306,
+      "best_epoch": 2,
+      "epochs_run": 7,
+      "validation_losses": [
+        0.4100563895825782,
+        0.40284052518918306,
+        0.40437230893816034,
+        0.40721415430011126,
+        0.4091028681964732,
+        0.4099808757830537,
+        0.4106309448647097
+      ],
+      "training_seconds": 2.2292897920124233,
+      "mse_gain_vs_original_tree_percent": 4.676305869545252,
+      "gain_ci95": [
+        1.3541776641741767,
+        9.559192807623306
+      ],
+      "equal_coin_day_mse": 0.4688818528795982,
+      "equal_coin_day_mae": 0.4751355023306327,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.1000810127298757,
+          "mse_gain_percent": 0.943234573457679
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.36188671788183385,
+          "mse_gain_percent": 9.71867057370005
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.33700474374543254,
+          "mse_gain_percent": 16.730976624230355
+        },
+        "BTCUSDC": {
+          "mse": 0.06084205147889956,
+          "mse_gain_percent": 40.09677003589975
+        },
+        "CRVUSDC": {
+          "mse": 1.1424941382093476,
+          "mse_gain_percent": -0.20520531293924069
+        },
+        "DOGEUSDC": {
+          "mse": 0.2666234964162103,
+          "mse_gain_percent": 17.976796864037684
+        },
+        "ETHUSDC": {
+          "mse": 0.09181493879336351,
+          "mse_gain_percent": 23.224709016312403
+        },
+        "LTCUSDC": {
+          "mse": 0.29506171772501244,
+          "mse_gain_percent": 14.857100784170257
+        },
+        "SOLUSDC": {
+          "mse": 0.17712292017944567,
+          "mse_gain_percent": 9.187500023321938
+        },
+        "SUIUSDC": {
+          "mse": 0.7177520732995389,
+          "mse_gain_percent": -0.35344028762845237
+        },
+        "UNIUSDC": {
+          "mse": 0.6857348030905588,
+          "mse_gain_percent": -10.11042103009161
+        },
+        "WIFUSDC": {
+          "mse": 0.6531619696951153,
+          "mse_gain_percent": 3.772507163758027
+        },
+        "XRPUSDC": {
+          "mse": 0.20588350419014345,
+          "mse_gain_percent": 11.883346144400678
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "matched_preprocessing_tree",
+      "seed": 2026,
+      "valid_mse": 0.41935660255211704,
+      "training_seconds": 5.38016941701062,
+      "mse_gain_vs_original_tree_percent": -0.34389102070958866,
+      "gain_ci95": [
+        -1.0816622662926534,
+        0.22812356451972737
+      ],
+      "equal_coin_day_mse": 0.4935753904223386,
+      "equal_coin_day_mae": 0.501542703366774,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.1102599636645238,
+          "mse_gain_percent": 0.026671208256399744
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.40305604333422745,
+          "mse_gain_percent": -0.5520059937658719
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.39911342462648275,
+          "mse_gain_percent": 1.3848151944404519
+        },
+        "BTCUSDC": {
+          "mse": 0.10284414030863556,
+          "mse_gain_percent": -1.257206777535427
+        },
+        "CRVUSDC": {
+          "mse": 1.1435250618612265,
+          "mse_gain_percent": -0.2956249595208809
+        },
+        "DOGEUSDC": {
+          "mse": 0.3316103796915014,
+          "mse_gain_percent": -2.0155608977900656
+        },
+        "ETHUSDC": {
+          "mse": 0.11714179876360971,
+          "mse_gain_percent": 2.0464882444731476
+        },
+        "LTCUSDC": {
+          "mse": 0.3416694544058695,
+          "mse_gain_percent": 1.4079896711031243
+        },
+        "SOLUSDC": {
+          "mse": 0.1975988221373182,
+          "mse_gain_percent": -1.310677424226398
+        },
+        "SUIUSDC": {
+          "mse": 0.7151193841264031,
+          "mse_gain_percent": 0.014652575576579945
+        },
+        "UNIUSDC": {
+          "mse": 0.6357162813113947,
+          "mse_gain_percent": -2.078802294124911
+        },
+        "WIFUSDC": {
+          "mse": 0.681519713434041,
+          "mse_gain_percent": -0.40531504435861626
+        },
+        "XRPUSDC": {
+          "mse": 0.23730560782516827,
+          "mse_gain_percent": -1.5650874263875854
+        }
+      }
+    },
+    {
+      "target": "future_rv_30s_bp",
+      "model": "mlp_64_32",
+      "seed": 2026,
+      "valid_mse": 0.4084293531714795,
+      "best_epoch": 6,
+      "epochs_run": 11,
+      "validation_losses": [
+        0.41340551125143593,
+        0.4131487756963116,
+        0.4108912712736014,
+        0.4088099704029858,
+        0.408453410269958,
+        0.4084293531714795,
+        0.40954555154066513,
+        0.41023938468311066,
+        0.4113961458421438,
+        0.41254388455273117,
+        0.41361445761450977
+      ],
+      "training_seconds": 3.488217458012514,
+      "mse_gain_vs_original_tree_percent": 2.593299366927782,
+      "gain_ci95": [
+        0.2516866435826037,
+        5.36542629685899
+      ],
+      "equal_coin_day_mse": 0.4791278253780087,
+      "equal_coin_day_mae": 0.48365382468817597,
+      "per_coin": {
+        "1000BONKUSDC": {
+          "mse": 1.126736086742343,
+          "mse_gain_percent": -1.4569208544848302
+        },
+        "1000PEPEUSDC": {
+          "mse": 0.39578216305874175,
+          "mse_gain_percent": 1.2626380617062591
+        },
+        "1000SHIBUSDC": {
+          "mse": 0.3431452327974297,
+          "mse_gain_percent": 15.213750128464332
+        },
+        "BTCUSDC": {
+          "mse": 0.054719995816165365,
+          "mse_gain_percent": 46.12435949587997
+        },
+        "CRVUSDC": {
+          "mse": 1.208936945754658,
+          "mse_gain_percent": -6.032732080018326
+        },
+        "DOGEUSDC": {
+          "mse": 0.27179396332954825,
+          "mse_gain_percent": 16.386170892804994
+        },
+        "ETHUSDC": {
+          "mse": 0.08215615183922706,
+          "mse_gain_percent": 31.301348708053638
+        },
+        "LTCUSDC": {
+          "mse": 0.30233845752371824,
+          "mse_gain_percent": 12.757327461904044
+        },
+        "SOLUSDC": {
+          "mse": 0.16388558457380814,
+          "mse_gain_percent": 15.974399980483653
+        },
+        "SUIUSDC": {
+          "mse": 0.7141714927677879,
+          "mse_gain_percent": 0.14718323956847418
+        },
+        "UNIUSDC": {
+          "mse": 0.6764254281764891,
+          "mse_gain_percent": -8.615587769922639
+        },
+        "WIFUSDC": {
+          "mse": 0.6806806962724246,
+          "mse_gain_percent": -0.2817063199458618
+        },
+        "XRPUSDC": {
+          "mse": 0.2078895312617712,
+          "mse_gain_percent": 11.024781035987068
+        }
+      }
+    }
+  ],
+  "hashes": {
+    "tools/compare_flow_mlp.py": "afe8f3d518581021bff76e4376f887ddcd40645ffea1cffa9b52596d9a771b1d",
+    "doc/factors/flow-v1/mlp-comparison/PROTOCOL.md": "2a62d4fa8f5b9348929df1f252bee36b93d0b09ea00c0c6099941c6b05b9af13"
+  },
+  "dataset_sha256": "9654a286ad8aceb284eb469cbe94a2802807a1952cbf9eb81ca911c4cf3ddd0f"
+}

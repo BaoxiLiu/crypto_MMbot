@@ -1,0 +1,89 @@
+--- a/hftbacktest/src/backtest/proc/local.rs
++++ b/hftbacktest/src/backtest/proc/local.rs
+@@ -99,8 +99,22 @@
+             }
+ 
+             // Processes receiving order response.
+-            if order.status == Status::Filled {
+-                self.state.apply_fill(&order);
++            // Account every newly acknowledged maker execution, including partial fills.
++            // Rejected requests can echo an earlier fill and must never apply it again.
++            if order.req != Status::Rejected
++                && matches!(order.status, Status::Filled | Status::PartiallyFilled)
++            {
++                let accounted_qty = self.orders.get(&order.order_id)
++                    .map_or(0.0, |known| known.qty - known.leaves_qty);
++                let newly_filled = order.qty - order.leaves_qty - accounted_qty;
++                if order.maker && newly_filled > 0.0 {
++                    let mut execution = order.clone();
++                    execution.exec_qty = newly_filled;
++                    self.state.apply_fill(&execution);
++                } else if !order.maker && order.status == Status::Filled {
++                    // Preserve upstream taker behavior; this patch targets resting maker fills.
++                    self.state.apply_fill(&order);
++                }
+             }
+             // Applies the received order response to the local orders.
+             match self.orders.entry(order.order_id) {
+--- a/py-hftbacktest/Cargo.toml
++++ b/py-hftbacktest/Cargo.toml
+@@ -14,5 +14,5 @@
+ 
+ [dependencies]
+ pyo3 = { version = "0.27.2", features = ["extension-module"] }
+-hftbacktest = { path = "../hftbacktest", default-features = false, features = ["backtest", "s3"] }
++hftbacktest = { path = "../hftbacktest", default-features = false, features = ["backtest"] }
+ hftbacktest-derive = { path = "../hftbacktest-derive" }
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -8,7 +8,7 @@
+ readme = "README.rst"
+ authors = [{ name = "nkaz001", email = "nkaz001@protonmail.com" }]
+ license = { file = "LICENSE" }
+-version = "2.4.4"
++version = "2.4.4+makerfix2"
+ requires-python = ">=3.11"
+ dependencies = [
+  "numpy >=2.0, <2.3",
+--- a/hftbacktest/src/backtest/proc/partialfillexchange.rs
++++ b/hftbacktest/src/backtest/proc/partialfillexchange.rs
+@@ -152,13 +152,13 @@
+                     // q_ahead is negative since is_filled is true and its value represents the
+                     // executable quantity of this order after execution in the queue ahead of this
+                     // order.
+-                    let exec_qty = if filled_qty > order.leaves_qty {
++                    let exec_qty = filled_qty.min(order.leaves_qty);
++                    self.fill::<true>(order, timestamp, true, order.price_tick, exec_qty)?;
++                    // An exact final fill must also leave the exchange's active queue.
++                    if order.status == Status::Filled {
+                         self.filled_orders.push(order.order_id);
+-                        order.leaves_qty
+-                    } else {
+-                        filled_qty
+-                    };
+-                    return self.fill::<true>(order, timestamp, true, order.price_tick, exec_qty);
++                    }
++                    return Ok(());
+                 }
+             }
+         }
+@@ -192,13 +192,13 @@
+                     // q_ahead is negative since is_filled is true and its value represents the
+                     // executable quantity of this order after execution in the queue ahead of this
+                     // order.
+-                    let exec_qty = if filled_qty > order.leaves_qty {
++                    let exec_qty = filled_qty.min(order.leaves_qty);
++                    self.fill::<true>(order, timestamp, true, order.price_tick, exec_qty)?;
++                    // An exact final fill must also leave the exchange's active queue.
++                    if order.status == Status::Filled {
+                         self.filled_orders.push(order.order_id);
+-                        order.leaves_qty
+-                    } else {
+-                        filled_qty
+-                    };
+-                    return self.fill::<true>(order, timestamp, true, order.price_tick, exec_qty);
++                    }
++                    return Ok(());
+                 }
+             }
+         }

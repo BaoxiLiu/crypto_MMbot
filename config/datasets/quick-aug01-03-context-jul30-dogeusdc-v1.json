@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-dogeusdc-v1",
+  "symbol": "DOGEUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "05e2c70ab2c6f69d44d0",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/DOGEUSDC/05e2c70ab2c6f69d44d0",
+  "cache_manifest_sha256": "7bbe7a54173b116a8f5ec3bdf17def998281fc4dba2c73d3590110b662e98242",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/DOGEUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

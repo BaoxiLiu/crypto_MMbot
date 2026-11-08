@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-ethusdc-v1",
+  "symbol": "ETHUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "61913f2d54b4f66d2b84",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/61913f2d54b4f66d2b84",
+  "cache_manifest_sha256": "8c1207b6e7bc29540c81977cc01c2a60a77735669f6ba09c3a2ddaf772bd6e11",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/ETHUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

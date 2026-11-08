@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.env
+logs/
+# 忽略 data/ 里的内容，但放行示例文件。
+# 注意要写 data/* 而不是 data/：git 不会进到被忽略的目录里，
+# 写成 data/ 的话下面那条 ! 规则根本不会生效。
+data/*
+!data/state.example.json
+.DS_Store
+.idea/

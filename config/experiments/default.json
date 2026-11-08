@@ -1,0 +1,291 @@
+{
+  "schema_version": 2,
+  "name": "quick-3day-as-comparison",
+  "stage": "quick",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "symbols": [
+    "BTCUSDC",
+    "ETHUSDC",
+    "SOLUSDC",
+    "DOGEUSDC",
+    "SUIUSDC",
+    "UNIUSDC",
+    "LTCUSDC",
+    "CRVUSDC",
+    "XRPUSDC",
+    "WIFUSDC",
+    "1000PEPEUSDC",
+    "1000SHIBUSDC",
+    "1000BONKUSDC"
+  ],
+  "datasets": {
+    "BTCUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/dfa79b1366f86b145b88",
+      "input_spec": "config/profiles/data/quick_inputs/BTCUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/BTCUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "62808.36862136",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "ETHUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/61913f2d54b4f66d2b84",
+      "input_spec": "config/profiles/data/quick_inputs/ETHUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/ETHUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "1860.15660118",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "SOLUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/SOLUSDC/66e513f1234d16ac5b9e",
+      "input_spec": "config/profiles/data/quick_inputs/SOLUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/SOLUSDC/20261023-aug01-10-state-v1/manifest.json",
+      "order_reference": {
+        "price": "72.77",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "DOGEUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/DOGEUSDC/05e2c70ab2c6f69d44d0",
+      "input_spec": "config/profiles/data/quick_inputs/DOGEUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/DOGEUSDC/20261021-aug01-05-v1/manifest.json",
+      "order_reference": {
+        "price": "0.0695239",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "SUIUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/SUIUSDC/1c2229a31714c99e8360",
+      "input_spec": "config/profiles/data/quick_inputs/SUIUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/SUIUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.68105119",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "UNIUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/UNIUSDC/f007f272fd5fef1f5776",
+      "input_spec": "config/profiles/data/quick_inputs/UNIUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/UNIUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "4.34",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "LTCUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/LTCUSDC/10c7c0d47b0da132af64",
+      "input_spec": "config/profiles/data/quick_inputs/LTCUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/LTCUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "44.23973251",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "CRVUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/CRVUSDC/be71c8410ed72e04a021",
+      "input_spec": "config/profiles/data/quick_inputs/CRVUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/CRVUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.20794471",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "XRPUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/XRPUSDC/ac9fad0357b7df70e545",
+      "input_spec": "config/profiles/data/quick_inputs/XRPUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/XRPUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "1.0603",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "WIFUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/WIFUSDC/faae9ac37ba7d9a5572b",
+      "input_spec": "config/profiles/data/quick_inputs/WIFUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/WIFUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.14305334",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "1000PEPEUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/1000PEPEUSDC/515acc065d020ea4fff4",
+      "input_spec": "config/profiles/data/quick_inputs/1000PEPEUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/1000PEPEUSDC/paper-reversal-20261027-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.00275062",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "1000SHIBUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/1000SHIBUSDC/db1c0e127c01f3a8161b",
+      "input_spec": "config/profiles/data/quick_inputs/1000SHIBUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/1000SHIBUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.004708",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "1000BONKUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/1000BONKUSDC/dd0fe29c4042eabec550",
+      "input_spec": "config/profiles/data/quick_inputs/1000BONKUSDC.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/1000BONKUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "0.00280348",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    }
+  },
+  "rules": "config/market/exchange-info.json",
+  "engine": {
+    "name": "hftbacktest",
+    "version": "2.4.4+makerfix2",
+    "native_sha256": "a3ec1da65f1d27e6464d30f08ad662ae5c1e7dc70cff62e3ed5fe26561ab0097",
+    "queue": "cancel_50_50",
+    "exchange": "partial_fill"
+  },
+  "execution": {
+    "name": "rust-aws-event-baseline-20261020",
+    "feed_ns": 1500000,
+    "trade_feed_ns": null,
+    "mark_feed_ns": null,
+    "refresh_ns": null,
+    "decision_ns": 100000,
+    "wire_prepare_ns": 0,
+    "request_ns": 500000,
+    "response_ns": 500000,
+    "taker_fee": "0.0004",
+    "provenance": {
+      "feed_boundary": "publication E to AWS application visibility; retain native source E-T",
+      "internal_compute_budget": "includes quote/risk/order encoding; Rust target assumption; Python elapsed time not certified",
+      "order_latency_measured": false,
+      "private_order_samples": 0,
+      "split_is_assumed": true,
+      "fee_source": "https://www.binance.com/en/support/announcement/detail/03180947641b414ebcb9a6c407fe80e2",
+      "fill_response_uses_same_response_budget_assumption": true
+    },
+    "trigger": "event"
+  },
+  "costs": {
+    "maker_fee": "0",
+    "fee_context": "Research scenarios: maker 0 / -0.3bp; taker 4bp on all 13 coins. Not a current account fee lookup."
+  },
+  "loss_stops": {
+    "daily_loss": null,
+    "drawdown_limit": null
+  },
+  "account": {
+    "initial_cash": "600",
+    "max_notional": "1000"
+  },
+  "strategy_parameters": {
+    "BTCUSDC": "config/strategies/accounts/BTCUSDC.json",
+    "ETHUSDC": "config/strategies/accounts/ETHUSDC.json",
+    "SOLUSDC": "config/strategies/accounts/SOLUSDC.json",
+    "DOGEUSDC": "config/strategies/accounts/DOGEUSDC.json",
+    "SUIUSDC": "config/strategies/accounts/SUIUSDC.json",
+    "UNIUSDC": "config/strategies/accounts/UNIUSDC.json",
+    "LTCUSDC": "config/strategies/accounts/LTCUSDC.json",
+    "CRVUSDC": "config/strategies/accounts/CRVUSDC.json",
+    "XRPUSDC": "config/strategies/accounts/XRPUSDC.json",
+    "WIFUSDC": "config/strategies/accounts/WIFUSDC.json",
+    "1000PEPEUSDC": "config/strategies/accounts/1000PEPEUSDC.json",
+    "1000SHIBUSDC": "config/strategies/accounts/1000SHIBUSDC.json",
+    "1000BONKUSDC": "config/strategies/accounts/1000BONKUSDC.json"
+  },
+  "fee_scenarios": [
+    {
+      "id": "maker0",
+      "maker_fee": "0"
+    },
+    {
+      "id": "maker_rebate03",
+      "maker_fee": "-0.00003"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "as_base",
+      "profile": "config/strategies/paper_native_as_v1.json",
+      "parameter_overrides": {
+        "mode": "as_base",
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1785801600000000000
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "paper_s1_sc0",
+      "profile": "config/strategies/paper_native_as_v1.json",
+      "parameter_overrides": {
+        "mode": "paper_s1_sc0",
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1785801600000000000
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    }
+  ],
+  "observations": {
+    "timezone": "UTC",
+    "markout_horizons_ms": [
+      100,
+      500,
+      1000,
+      5000,
+      10000,
+      30000,
+      60000
+    ],
+    "markout_anchor": "local_fill_receipt",
+    "markout_reference": "first_observed_mid_at_or_after",
+    "max_markout_lag_ms": 250,
+    "retain_midpoints": false,
+    "order_placements": true,
+    "order_lifecycle": false
+  },
+  "outputs": {
+    "format": "html",
+    "retention": "final_only",
+    "runs_root": "data/experiments",
+    "reports_root": "doc/reports/experiments",
+    "required": [
+      "pnl_curve",
+      "daily_volume",
+      "total_volume",
+      "markouts",
+      "fills",
+      "effective_config",
+      "input_identity",
+      "validation"
+    ]
+  },
+  "resources": {
+    "workers": 2
+  }
+}

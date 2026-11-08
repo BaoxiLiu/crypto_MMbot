@@ -1,0 +1,22 @@
+{
+  "dataset": "$QUANT_DATA_ROOT/crypto/certified/1000BONKUSDC/dd0fe29c4042eabec550",
+  "config": {
+    "provider": "cryptohftdata",
+    "source": "$QUANT_DATA_ROOT/crypto/raw/hft/binance_futures",
+    "symbol": "1000BONKUSDC",
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "context_start": "2026-07-30",
+    "feed_latency_ms": 1.5,
+    "feed_clock": "publication",
+    "cache": "$QUANT_DATA_ROOT/crypto/certified",
+    "trade_source": "binance_official",
+    "official_trades_root": "$QUANT_DATA_ROOT/crypto/raw/official_binance/trades",
+    "gap_policy": "independent_segments",
+    "bootstrap_policy": "wait_first_snapshot",
+    "invalid_trade_policy": "exclude_verified_zero_placeholders"
+  },
+  "rows": 5337454,
+  "segments": 5,
+  "exchange_only_trade_rows": 0
+}

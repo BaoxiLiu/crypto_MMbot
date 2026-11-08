@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-suiusdc-grid-repaired-v1",
+  "symbol": "SUIUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "1c2229a31714c99e8360",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/SUIUSDC/1c2229a31714c99e8360",
+  "cache_manifest_sha256": "4d0c3d67f523d9be4dd820d270ae694615c40c28b7332225c9ff93faac42eb7f",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-03",
+  "source": "config/profiles/data/quick_inputs/SUIUSDC.json",
+  "notes": "Same raw data and rules. Removed six clock-duplicated zero-quantity off-grid depth tombstones only. Full-window audit proves rounded destinations never had positive quantity; no trades or live levels removed. Provenance in manifest.tape_sanitization."
+}

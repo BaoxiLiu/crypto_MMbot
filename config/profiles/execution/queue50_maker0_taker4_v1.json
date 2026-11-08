@@ -1,0 +1,35 @@
+{
+  "engine": {
+    "name": "hftbacktest",
+    "version": "2.4.4+makerfix2",
+    "native_sha256": "a3ec1da65f1d27e6464d30f08ad662ae5c1e7dc70cff62e3ed5fe26561ab0097",
+    "queue": "cancel_50_50",
+    "exchange": "partial_fill"
+  },
+  "execution": {
+    "name": "rust-aws-event-baseline-20261020",
+    "feed_ns": 1500000,
+    "trade_feed_ns": null,
+    "mark_feed_ns": null,
+    "refresh_ns": null,
+    "decision_ns": 100000,
+    "wire_prepare_ns": 0,
+    "request_ns": 500000,
+    "response_ns": 500000,
+    "taker_fee": "0.0004",
+    "provenance": {
+      "feed_boundary": "publication E to AWS application visibility; retain native source E-T",
+      "internal_compute_budget": "includes quote/risk/order encoding; Rust target assumption; Python elapsed time not certified",
+      "order_latency_measured": false,
+      "private_order_samples": 0,
+      "split_is_assumed": true,
+      "fee_source": "https://www.binance.com/en/support/announcement/detail/03180947641b414ebcb9a6c407fe80e2",
+      "fill_response_uses_same_response_budget_assumption": true
+    },
+    "trigger": "event"
+  },
+  "costs": {
+    "maker_fee": "0",
+    "fee_context": "research scenario: all selected coins maker 0, taker 4bp; no rebate"
+  }
+}

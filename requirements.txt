@@ -1,0 +1,13 @@
+# Tested local Python 3.11 dependencies. Native HFT wheel installed separately.
+# Direct requirements, not a full transitive lock; see doc/development.md.
+numpy==1.26.4
+scipy==1.17.1
+pandas==3.0.6
+pyarrow==25.0.1
+polars==1.44.2
+numba==0.68.0
+matplotlib==3.11.2
+scikit-learn==1.4.0
+lightgbm==4.6.0
+pytest==9.2.0
+aiohttp==3.13.5

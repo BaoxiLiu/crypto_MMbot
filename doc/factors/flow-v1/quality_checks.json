@@ -1,0 +1,13 @@
+{
+  "unit_tests_passed": 20,
+  "real_file_domain_checks": 13,
+  "output_rows": 46813,
+  "future_calibration_guard": true,
+  "baseline_50_unchanged": true,
+  "code_sha256": {
+    "app/factor_library/flow.py": "0a14d8b4b5eeab55cc56e11f7bd3a6c2506bc8fe5646d0ef3fc7955aed76cc7b",
+    "tools/build_flow_factors.py": "107e6c84674ff8ad6525a810011bde3e106e08b4c4dd4e5443eb5d2bc0193cac",
+    "tools/freeze_flow_quotas.py": "634cf90bf7f831eef7364ebda330bf22f44802a13bd5ecb3df3a0187804f7fcd",
+    "tools/tests/test_flow_factor_library.py": "f0fef86af8ff21e7e8c72c9f2d5bb75f8049d29503406cc78be73ea278dfa79d"
+  }
+}

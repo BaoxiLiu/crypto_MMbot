@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-1000bonkusdc-v1",
+  "symbol": "1000BONKUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "dd0fe29c4042eabec550",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/1000BONKUSDC/dd0fe29c4042eabec550",
+  "cache_manifest_sha256": "7cbbce4eee0ea7c36b40d92d02041c41937557ef3c975fdffb63b1fa96f768ed",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-02",
+  "source": "config/profiles/data/quick_inputs/1000BONKUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-solusdc-v1",
+  "symbol": "SOLUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "66e513f1234d16ac5b9e",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/SOLUSDC/66e513f1234d16ac5b9e",
+  "cache_manifest_sha256": "6a4aa40d335084e0d54052b9dbf0dc25dc75543b7ea506a5ad38143b088c9de1",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/SOLUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

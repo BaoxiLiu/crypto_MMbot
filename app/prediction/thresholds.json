@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "meta": {
+    "segment": "2026-08-05~2026-09-08",
+    "hours_per_day": 1,
+    "coins": [
+      "BTCUSDC",
+      "SOLUSDC",
+      "SUIUSDC",
+      "UNIUSDC",
+      "DOGEUSDC",
+      "1000SHIBUSDC",
+      "WIFUSDC",
+      "ETHUSDC",
+      "1000PEPEUSDC",
+      "LTCUSDC",
+      "CRVUSDC",
+      "XRPUSDC",
+      "1000BONKUSDC"
+    ],
+    "note": "sampled percentile estimate; regenerate denser before final P2 eval"
+  },
+  "thresholds": {
+    "BTCUSDC": {
+      "cancel_p90_notional": 70530.5832,
+      "median_cancel_qty": 0.145,
+      "trade_p90_notional": 8317.199470000007
+    },
+    "SOLUSDC": {
+      "cancel_p90_notional": 31729.052599999995,
+      "median_cancel_qty": 20.72999999999999,
+      "trade_p90_notional": 1036.9792800000014
+    },
+    "SUIUSDC": {
+      "cancel_p90_notional": 4693.975055000001,
+      "median_cancel_qty": 733.0,
+      "trade_p90_notional": 279.2635500000003
+    },
+    "UNIUSDC": {
+      "cancel_p90_notional": 2976.6000000000004,
+      "median_cancel_qty": 87.0,
+      "trade_p90_notional": 343.312
+    },
+    "DOGEUSDC": {
+      "cancel_p90_notional": 8840.727534000001,
+      "median_cancel_qty": 8781.0,
+      "trade_p90_notional": 605.7116160000002
+    },
+    "1000SHIBUSDC": {
+      "cancel_p90_notional": 2995.9180693000003,
+      "median_cancel_qty": 93550.0,
+      "trade_p90_notional": 159.594375
+    },
+    "WIFUSDC": {
+      "cancel_p90_notional": 3611.6322999999998,
+      "median_cancel_qty": 1376.2000000000007,
+      "trade_p90_notional": 241.99221
+    },
+    "ETHUSDC": {
+      "cancel_p90_notional": 74248.80225,
+      "median_cancel_qty": 1.945999999999998,
+      "trade_p90_notional": 3978.0273000000066
+    },
+    "1000PEPEUSDC": {
+      "cancel_p90_notional": 2809.8533474,
+      "median_cancel_qty": 101042.0,
+      "trade_p90_notional": 226.93349040000024
+    },
+    "LTCUSDC": {
+      "cancel_p90_notional": 6382.08784,
+      "median_cancel_qty": 14.979,
+      "trade_p90_notional": 500.011889
+    },
+    "CRVUSDC": {
+      "cancel_p90_notional": 2235.6405000000123,
+      "median_cancel_qty": 1047.7999999999993,
+      "trade_p90_notional": 279.37399999999997
+    },
+    "XRPUSDC": {
+      "cancel_p90_notional": 21739.70883000003,
+      "median_cancel_qty": 1109.2000000000003,
+      "trade_p90_notional": 908.4198330000003
+    },
+    "1000BONKUSDC": {
+      "cancel_p90_notional": 3795.1834214000005,
+      "median_cancel_qty": 92693.0,
+      "trade_p90_notional": 298.2418118
+    }
+  }
+}

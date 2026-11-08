@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-1000pepeusdc-v1",
+  "symbol": "1000PEPEUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "515acc065d020ea4fff4",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/1000PEPEUSDC/515acc065d020ea4fff4",
+  "cache_manifest_sha256": "0703c481c517d87fb8b0b82649b5a334744abe4a7fbf42e0c885cd4826e4edcc",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/1000PEPEUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}

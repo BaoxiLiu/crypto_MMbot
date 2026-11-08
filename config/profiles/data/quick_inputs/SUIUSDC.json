@@ -1,0 +1,93 @@
+{
+  "dataset": "$QUANT_DATA_ROOT/crypto/certified/SUIUSDC/1c2229a31714c99e8360",
+  "config": {
+    "provider": "cryptohftdata",
+    "source": "$QUANT_DATA_ROOT/crypto/raw/hft/binance_futures",
+    "symbol": "SUIUSDC",
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "context_start": "2026-07-30",
+    "feed_latency_ms": 1.5,
+    "feed_clock": "publication",
+    "cache": "$QUANT_DATA_ROOT/crypto/certified",
+    "trade_source": "binance_official",
+    "official_trades_root": "$QUANT_DATA_ROOT/crypto/raw/official_binance/trades",
+    "gap_policy": "independent_segments",
+    "bootstrap_policy": "wait_first_snapshot",
+    "invalid_trade_policy": "exclude_verified_zero_placeholders"
+  },
+  "rows": 16097791,
+  "segments": 6,
+  "exchange_only_trade_rows": 19,
+  "tape_sanitization": {
+    "policy": "remove_only_zero_qty_offgrid_depth_deletions_whose_rounded_target_never_has_positive_qty_anywhere_in_context_and_trade_window",
+    "tick": "0.0001",
+    "original_manifest_sha256": "131314e52722f7e518716c9b989364ed251e9490c50ef2230571b88ec5182196",
+    "audit": {
+      "offgrid": [
+        [
+          "segment_004_0022.npz",
+          3.97632,
+          0.0,
+          1
+        ],
+        [
+          "segment_004_0022.npz",
+          3.97632,
+          0.0,
+          1
+        ],
+        [
+          "segment_004_0022.npz",
+          3.98571,
+          0.0,
+          1
+        ],
+        [
+          "segment_004_0022.npz",
+          3.98571,
+          0.0,
+          1
+        ],
+        [
+          "segment_004_0022.npz",
+          4.16644,
+          0.0,
+          1
+        ],
+        [
+          "segment_004_0022.npz",
+          4.16644,
+          0.0,
+          1
+        ]
+      ],
+      "rounded_target_ever_positive": [
+        [
+          3.97632,
+          false
+        ],
+        [
+          3.97632,
+          false
+        ],
+        [
+          3.98571,
+          false
+        ],
+        [
+          3.98571,
+          false
+        ],
+        [
+          4.16644,
+          false
+        ],
+        [
+          4.16644,
+          false
+        ]
+      ]
+    }
+  }
+}

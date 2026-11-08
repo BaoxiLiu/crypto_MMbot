@@ -1,0 +1,41 @@
+{
+  "type": "fb_as_hjb",
+  "version": 2,
+  "params": {
+    "adaptive": true,
+    "step_seconds": 1.0,
+    "horizon_steps": 60,
+    "market_window_seconds": 1800.0,
+    "reward_window_seconds": 1800.0,
+    "half_life_seconds": 300.0,
+    "ridge": 0.01,
+    "mixing": 0.25,
+    "minimum_labels": 30,
+    "fit_interval_seconds": 10.0,
+    "prior": [
+      1.0,
+      0.0,
+      -0.001,
+      -1.0
+    ],
+    "distances_ticks": [
+      0.0,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0
+    ],
+    "static_floor_ticks": 0.0,
+    "max_target_units": 10.0,
+    "minimum_rate": 0.0001,
+    "maximum_rate": 100.0,
+    "minimum_decay": 0.001,
+    "maximum_decay": 10.0,
+    "maximum_feedback_lag_ms": 250,
+    "trade_start_ns": 1785542400000000000,
+    "trade_end_ns": 1786406400000000000,
+    "capital_utilization": null
+  }
+}

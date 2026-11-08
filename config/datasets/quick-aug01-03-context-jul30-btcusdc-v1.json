@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quick-aug01-03-context-jul30-btcusdc-v1",
+  "symbol": "BTCUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-04",
+    "timezone": "UTC"
+  },
+  "cache_key": "dfa79b1366f86b145b88",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/dfa79b1366f86b145b88",
+  "cache_manifest_sha256": "693a2c6e7417b3e275a94e95a647342ca08057036399608443e5ca6e2af1b8af",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-01",
+  "source": "config/profiles/data/quick_inputs/BTCUSDC.json",
+  "notes": "Fresh context conversion; sources hashed; ID-verified bridges; no unresolved trade gaps. Not proof of live fill accuracy."
+}
