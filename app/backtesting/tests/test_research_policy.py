@@ -21,7 +21,9 @@ def test_new_custom_contract_is_pure():
     (None,'symbols',['DOGEUSDC']), (None,'symbols',['BTCUSDC']),
     ('engine','queue','risk_adverse'), ('execution','taker_fee','0'),
     ('account','max_notional','9000'), ('outputs','retention','all'),
-    ('outputs','format','json'), (None,'fee_scenarios',[{'maker_fee':'0'}])])
+    ('outputs','format','json'), (None,'fee_scenarios',[{'maker_fee':'-0.00003'}]),
+    (None,'fee_scenarios',[]), (None,'fee_scenarios',[{'maker_fee':'0.0001'}]),
+    (None,'fee_scenarios',[{'maker_fee':'0'},{'maker_fee':'0'}])])
 def test_custom_cannot_skip_shared_contract(section,key,value):
     s=spec();(s if section is None else s[section])[key]=value
     with pytest.raises(ValueError):validate_preparation(s)
@@ -77,3 +79,9 @@ def test_registered_execution_cannot_bypass_policy(tmp_path, entry):
         if entry=='worker':fusion_experiment.worker(path,'case')
         else:fusion_experiment.run(path)
     assert list(tmp_path.iterdir())==[path]
+
+
+def test_maker_zero_only_does_not_inject_rebate_or_mutate_configuration():
+    s=spec();s['fee_scenarios']=[{'maker_fee':'0'}];before=deepcopy(s)
+    assert validate_preparation(s)['policy_version']==2
+    assert s==before

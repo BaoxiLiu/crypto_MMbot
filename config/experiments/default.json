@@ -215,10 +215,6 @@
     {
       "id": "maker0",
       "maker_fee": "0"
-    },
-    {
-      "id": "maker_rebate03",
-      "maker_fee": "-0.00003"
     }
   ],
   "strategies": [
@@ -242,7 +238,10 @@
       "parameter_overrides": {
         "mode": "paper_s1_sc0",
         "trade_start_ns": 1785542400000000000,
-        "trade_end_ns": 1785801600000000000
+        "trade_end_ns": 1785801600000000000,
+        "min_half_spread_ticks": 1,
+        "volatility_adjustment": true,
+        "markout_adjustment": true
       },
       "overrides": {
         "as_config": {

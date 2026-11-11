@@ -22,8 +22,8 @@ def test_composed_example_decouples_data_from_strategy_and_shares_risk():
     assert all(c['max_notional']=='1000' and c['initial_cash']=='600' for c in configs)
     assert s['strategies'][0]['plugin']['type']=='paper_native_as'
     assert s['strategies'][0]['plugin']['params']['mode']=='as_base'
-    assert s['strategies'][2]['plugin']['type']=='paper_native_as'
-    assert s['strategies'][2]['plugin']['params']['mode']=='paper_s1_sc0'
+    assert s['strategies'][1]['plugin']['type']=='paper_native_as'
+    assert s['strategies'][1]['plugin']['params']['mode']=='paper_s1_sc0'
 
 
 def test_profile_crossing_module_boundary_or_overriding_inline_data_fails(tmp_path):
@@ -69,7 +69,7 @@ def test_prepare_records_identities_without_copying_source_or_profiles(tmp_path,
     recorded=[];monkeypatch.setattr(module.run_registry,'append',recorded.append)
     registration=module.prepare(config,'profile-contract-test')
     r=json.loads(registration.read_text())
-    assert [c['plugin']['type'] for c in r['cases']]==['paper_native_as']*52
+    assert [c['plugin']['type'] for c in r['cases']]==['paper_native_as']*26
     assert all(c['config']['max_notional']=='1000' for c in r['cases'])
     assert not (registration.parent/'config_snapshot').exists()
     assert not (registration.parent/'source_snapshot').exists()

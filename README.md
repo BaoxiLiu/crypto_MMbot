@@ -1,6 +1,6 @@
 # Crypto MMbot
 
-本机Python加密资产做市研究框架。包含AS（原始/改进）、NH预测报价、HJB（固定/自适应/库存预算）三个策略家族，同类差异通过参数控制，共用执行、账户、指标和报告流程。
+本机Python加密资产做市研究框架。包含AS（原始/改进）、GLFT、NH预测报价、HJB（固定/自适应/库存预算）四个策略家族，同类差异通过参数控制，共用执行、账户、指标和报告流程。
 
 ## 快速开始
 
@@ -13,9 +13,11 @@ python -B -m app backtest run --config config/experiments/default.json
 python -B -m app check --native --tools
 ```
 
-默认实验为13币、UTC 8月1日至3日、原始/改进AS、双maker费率。首次运行前核验数据和模型；局部验收不证明完整窗口收益，NH历史参数使用限制见模型说明。在线下单必须另外明确授权。
+默认实验为13币、UTC 8月1日至3日、原始/改进AS、maker 0；改进AS静态最低半价差1 tick。首次运行前核验数据和模型；局部验收不证明完整窗口收益，NH历史参数使用限制见模型说明。在线下单必须另外明确授权。
 
 已有家族的新配置参考[BTC/ETH参数示例](config/experiments/as_s1_ablation.json)：只改参数，复用数据、执行和标准报告。新增数学家族先遵守[策略接入合同](doc/development.md)，无需修改公共引擎。架构边界、循环依赖、模块预算和产物规则由`app check`强制检查，规则见[AGENTS](AGENTS.md)。
+
+GLFT复现及与原始AS的BTC/ETH同条件比较使用[30日配置](config/experiments/as_glft_30day.json)，数学定义、库存单位和参考实现见[策略说明](doc/strategies.md)。
 
 ## 项目结构
 
@@ -30,12 +32,12 @@ python -B -m app check --native --tools
 
 `tools/data`存放下载、准备和校验行情的程序；根目录`data`存放本机模型与运行记录，两者不重复。工具按职责和使用条件维护，见[开发说明](doc/development.md)。
 
-原始行情与认证缓存保存在项目外。回测默认最终只发布单文件HTML及轻量登记，表格和图表按币种联动，并分别比较maker 0和−0.3bp情景。
+原始行情与认证缓存保存在项目外。回测默认最终只发布单文件HTML及轻量登记，表格和图表按币种联动，按实验显式配置展示费用情景，默认仅maker 0。
 
 ## 技术文档
 
 - [开发与架构](doc/development.md)：模块边界、环境、检查和开发规则。
-- [策略](doc/strategies.md)：AS/NH/HJB的逻辑、出处与参数。
+- [策略](doc/strategies.md)：AS/GLFT/NH/HJB的逻辑、出处与参数。
 - [回测](doc/backtesting.md)：统一配置、指标、报告和清理契约。
 - [数据](doc/data.md)：数据位置、格式、采集与认证。
 - [因子](doc/factors.md)：分类、计算与详细定义。

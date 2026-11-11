@@ -1,0 +1,154 @@
+{
+  "schema_version": 2,
+  "name": "as-vs-glft-30day",
+  "stage": "custom",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-31",
+    "timezone": "UTC"
+  },
+  "symbols": [
+    "BTCUSDC",
+    "ETHUSDC"
+  ],
+  "datasets": {
+    "BTCUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/60e104455480e32ee559",
+      "input_spec": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/60e104455480e32ee559/project_inputs/input_spec.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/BTCUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "62808.36862136",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    },
+    "ETHUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/65c03b9ab6cf838e6690",
+      "input_spec": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/65c03b9ab6cf838e6690/project_inputs/input_spec.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/ETHUSDC/paper-reversal-20261029-aug-v1/manifest.json",
+      "order_reference": {
+        "price": "1860.15660118",
+        "source_mark_ns": 1785542399003500000,
+        "rule": "latest visible mark strictly before trading start; 25USDC target raised only for exchange minimums with fixed 10% buffer"
+      }
+    }
+  },
+  "rules": "config/market/exchange-info.json",
+  "engine": {
+    "name": "hftbacktest",
+    "version": "2.4.4+makerfix2",
+    "native_sha256": "a3ec1da65f1d27e6464d30f08ad662ae5c1e7dc70cff62e3ed5fe26561ab0097",
+    "queue": "cancel_50_50",
+    "exchange": "partial_fill"
+  },
+  "execution": {
+    "name": "rust-aws-event-baseline-20261020",
+    "feed_ns": 1500000,
+    "trade_feed_ns": null,
+    "mark_feed_ns": null,
+    "refresh_ns": null,
+    "decision_ns": 100000,
+    "wire_prepare_ns": 0,
+    "request_ns": 500000,
+    "response_ns": 500000,
+    "taker_fee": "0.0004",
+    "provenance": {
+      "feed_boundary": "publication E to AWS application visibility; retain native source E-T",
+      "internal_compute_budget": "includes quote/risk/order encoding; Rust target assumption; Python elapsed time not certified",
+      "order_latency_measured": false,
+      "private_order_samples": 0,
+      "split_is_assumed": true,
+      "fee_source": "https://www.binance.com/en/support/announcement/detail/03180947641b414ebcb9a6c407fe80e2",
+      "fill_response_uses_same_response_budget_assumption": true
+    },
+    "trigger": "event"
+  },
+  "costs": {
+    "maker_fee": "0",
+    "fee_context": "Research scenarios: maker 0 / -0.3bp; taker 4bp on all 13 coins. Not a current account fee lookup."
+  },
+  "loss_stops": {
+    "daily_loss": null,
+    "drawdown_limit": null
+  },
+  "account": {
+    "initial_cash": "600",
+    "max_notional": "1000"
+  },
+  "strategy_parameters": {
+    "BTCUSDC": "config/strategies/accounts/BTCUSDC_100.json",
+    "ETHUSDC": "config/strategies/accounts/ETHUSDC.json"
+  },
+  "fee_scenarios": [
+    {
+      "id": "maker0",
+      "maker_fee": "0"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "as_base",
+      "profile": "config/strategies/paper_native_as_v1.json",
+      "parameter_overrides": {
+        "mode": "as_base",
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1788134400000000000
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "glft",
+      "profile": "config/strategies/glft_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1785542400000000000,
+        "trade_end_ns": 1788134400000000000
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    }
+  ],
+  "observations": {
+    "timezone": "UTC",
+    "markout_horizons_ms": [
+      100,
+      500,
+      1000,
+      5000,
+      10000,
+      30000,
+      60000
+    ],
+    "markout_anchor": "local_fill_receipt",
+    "markout_reference": "first_observed_mid_at_or_after",
+    "max_markout_lag_ms": 250,
+    "retain_midpoints": false,
+    "order_placements": true,
+    "order_lifecycle": false
+  },
+  "outputs": {
+    "format": "html",
+    "retention": "final_only",
+    "runs_root": "data/experiments",
+    "reports_root": "doc/reports/experiments",
+    "required": [
+      "pnl_curve",
+      "daily_volume",
+      "total_volume",
+      "markouts",
+      "fills",
+      "effective_config",
+      "input_identity",
+      "validation"
+    ]
+  },
+  "resources": {
+    "workers": 4
+  }
+}

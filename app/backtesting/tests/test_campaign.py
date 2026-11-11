@@ -37,9 +37,10 @@ def test_explicit_runtime_is_not_silently_overridden_by_machine_defaults(tmp_pat
 
 def test_plan_has_exact_requested_matrix_and_causal_context():
     p=json.loads((ROOT/'config/experiments/default.json').read_text())
-    assert len(set(p['symbols']))==13 and len(p['fee_scenarios'])==2
+    assert len(set(p['symbols']))==13 and len(p['fee_scenarios'])==1
     assert ns(p['window']['end_exclusive'])-ns(p['window']['start'])==3*86400*10**9
-    assert {D(f['maker_fee']) for f in p['fee_scenarios']}=={D(0),D('-0.00003')}
+    assert {D(f['maker_fee']) for f in p['fee_scenarios']}=={D(0)}
+    assert p['strategies'][1]['parameter_overrides']['min_half_spread_ticks']==1
 
 
 def test_holding_periods_keep_intrasecond_roundtrips_reversals_and_censoring():
@@ -54,14 +55,14 @@ def test_holding_periods_keep_intrasecond_roundtrips_reversals_and_censoring():
 
 
 
-def test_standard_campaign_cannot_silently_shrink_to_one_coin_or_one_fee():
+def test_standard_campaign_requires_all_coins_and_maker_zero():
     p=json.loads((ROOT/'config/experiments/default.json').read_text())
     spec=dict(stage='quick',symbols=p['symbols'],fee_scenarios=p['fee_scenarios'],window=p['window'],
               account={'max_notional':'1000'},engine={'queue':'cancel_50_50'},execution={'taker_fee':'0.0004'})
     validate_standard(spec)
     short=copy.deepcopy(spec);short['symbols']=['DOGEUSDC']
     with pytest.raises(ValueError,match='13 coins'):validate_standard(short)
-    short=copy.deepcopy(spec);short['fee_scenarios']=short['fee_scenarios'][:1]
+    short=copy.deepcopy(spec);short['fee_scenarios']=[dict(maker_fee='-0.00003')]
     with pytest.raises(ValueError,match='maker'):validate_standard(short)
 
 

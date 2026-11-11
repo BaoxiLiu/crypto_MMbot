@@ -5,17 +5,18 @@
 
 ## 做市策略统一说明与参数目录
 
-更新：2026-11-08。本文是策略逻辑、出处、参数和实现入口的统一说明。策略插件规范见[架构文档](development.md)；共同回测规范见[doc/backtesting.md](backtesting.md)。
+更新：2026-11-11。本文是策略逻辑、出处、参数和实现入口的统一说明。策略插件规范见[架构文档](development.md)；共同回测规范见[doc/backtesting.md](backtesting.md)。
 
 ### 1. 分类与命名
 
-策略注册表只接受三类：**NativeAS及早期改进AS、NH预测报价、FB-AS HJB**。历史插件名称与HJB旧版本均已退役；无插件配置、非零mask及旧预测叠加配置均已拒绝。
+策略注册表接受四类：**NativeAS及早期改进AS、GLFT、NH预测报价、FB-AS HJB**。历史插件名称与HJB旧版本均已退役；无插件配置、非零mask及旧预测叠加配置均已拒绝。
 
 同一数学逻辑的开关、阈值、预算比例作为参数；不因取值不同复制策略实现。`id`只是某次实验的配置名称，`type + version + params`才描述具体算法。实现合同的版本号与历史实验run_id中的v1/v2/v3分开。
 
 | 家族/用途 | 规范type | 主要参数差异 | 来源 |
 |---|---|---|---|
 | 主线AS及早期改进 | `paper_native_as` v1 | `mode`、`min_half_spread_ticks` | AS理论、参考Hummingbot约定的本地实现、本项目早期paper工程 |
+| GLFT闭式渐近报价 | `glft` v1 | `gamma`、`xi`、`inventory_units` | GLFT论文、HftBacktest示例的独立适配 |
 | 主线NH | `nh_quote_value` v1 | 各币冻结的`models` | 用户提供的NH压缩包，移植预测和报价选择逻辑 |
 | 主线HJB | `fb_as_hjb` v2 | `adaptive`、`capital_utilization`、求解/学习参数 | Zero-shot论文附录C，本地市场估计与预算扩展 |
 
@@ -199,3 +200,16 @@ profile中的未知字段和跨层设置会拒绝；同字段同时内联和引�
 `as_strategy.ASStrategy`、`nh_strategy.NHStrategy`、`hjb_strategy.HJBStrategy`分别承载主线策略；`base.QuoteStrategy`只保存通用观测/生命周期。特征、数学、OMS和记账继续独立。旧compat目录和导入转发均已删除。prepare登记各插件实际源码及公共执行源码；不为旧插件名保留隐藏入口。
 
 AS仍用mode选择原始/改进、min_half_spread_ticks选择静态下限，并新增可选volatility_adjustment/markout_adjustment独立覆盖。未设置覆盖时保持旧mode的行为；原始AS拒绝启用改进模块。HJB沿用v2的adaptive/capital_utilization。各case仍有独立实例、可变状态、账户及完整展开参数。
+
+
+## GLFT闭式渐近报价
+
+用户明确要求复现后新增`glft` v1家族；实现位于`app/market_making/strategies/glft_strategy.py`，profile为`config/strategies/glft_v1.json`。它复用AS生命周期与因果成交强度估计，独立替换定价器；没有另一套执行器。原生AS和既有家族的冻结轨迹保持不变。
+
+参考[GLFT原论文](https://arxiv.org/abs/1105.3115)、[Guéant广义模型](https://arxiv.org/abs/1605.01862)及[HftBacktest GitHub示例](https://github.com/nkaz001/hftbacktest/blob/66b2e7537f0005b1bf691373017160566814ee4a/examples/GLFT%20Market%20Making%20Model%20and%20Grid%20Trading.ipynb)。独立实现Delta=1的渐近闭式近似，不声明复现有限期限矩阵精确解，也不引入示例网格、方向预测或返佣。
+
+距离单位为tick；A是每秒到达强度代理，k由现有AS拟合的每价格单位衰减乘tick转换；sigma为1秒价格变化的总体标准差（tick/sqrt秒）。c1=log(1+xi/k)/xi，c2=sqrt(gamma/(2Ak)*(1+xi/k)^(k/xi+1))；半价差=c1+sigma*c2/2，库存偏移=position/inventory_unit*sigma*c2。买卖价限定为被动报价，并经共同订单策略、OMS和交易规则检查。
+
+`gamma=xi=0.05`为参考实现提供的研究起点，没有收益调参或最优性保证；库存单位固定为BTC 0.001、ETH 0.013基础币。AS参数gamma自动初始标定、库存按共同数量上限归一化，GLFT则按明确固定交易单位归一化；两者不能把同名gamma数值直接等同。两者复用同一10分钟/至少120秒、每30秒尝试拟合的到达样本；该拟合使用每秒最远成交穿透与0.5至11.5tick距离，属于到达率近似，不是真实逐订单成交概率，偏离GitHub的采样/拟合范围。GLFT波动用标准差，既有AS仍用价格增量RMS；这些适配差异须随结果披露。
+
+比较配置`config/experiments/as_glft_30day.json`使用BTC/ETH、UTC [2026-08-01,2026-08-31)，7月30日起预热，两家族均关闭微价格/keeper/S1/SC0和额外库存控制。共同600USDC初始资金、1000USDC敞口上限；BTC目标单笔100USDC（两模型一致，避免旧69USDC目标在价格上升时不足最小一手），ETH目标25USDC、maker 0/taker 4bp、50/50撤单队列与既有延迟假设。GLFT不提供盈利用保证。共同保证金压力停机、最小下单量和期末残仓估值仍会影响结果，回放完整不等于全程做市。

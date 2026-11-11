@@ -20,6 +20,8 @@ class StrategyDefinition:
 
 # One reviewed entry per mathematical family; parameter variants add no entry.
 DEFINITIONS = {
+    'glft': StrategyDefinition('glft_strategy', 'GLFTStrategy', (1,),
+        'GLFT asymptotic single-level quotes with causal arrival calibration'),
     'paper_native_as': StrategyDefinition('as_strategy', 'ASStrategy', (1,),
         'Project-owned AS; optional S1/SC0 policy'),
     'nh_quote_value': StrategyDefinition('nh_strategy', 'NHStrategy', (1,),

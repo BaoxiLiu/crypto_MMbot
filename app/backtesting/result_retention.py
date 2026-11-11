@@ -100,6 +100,12 @@ def finalize(registration,registry_path=run_registry.REGISTRY):
                  scope='完整请求区间' if reg['full_range'] else '局部验证',
                  totals=payload['results'].get('totals',[]))
     run_registry.record_final(reg['run_id'],target,expected,payload['status'],summary,'pending',registry_path)
+    if payload['status']!='completed':
+        # Failed HTML is diagnostic only: it does not contain successful arms'
+        # fills/curves. Preserve the entire owned workspace for repair/resume.
+        run_registry.record_final(reg['run_id'],target,expected,payload['status'],summary,'retained',registry_path,workspace_path=str(w))
+        update_index(final.parent,registry_path)
+        return target
     # rmtree does not follow directory symlinks; the root and ownership are checked again.
     check_owner(reg)
     released=sum(p.stat().st_size for p in w.rglob('*') if p.is_file() and not p.is_symlink())

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "full-aug01-30-context-jul30-btcusdc-v1",
+  "symbol": "BTCUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-31",
+    "timezone": "UTC"
+  },
+  "cache_key": "60e104455480e32ee559",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/60e104455480e32ee559",
+  "cache_manifest_sha256": "4995e4536c45f9a9180473ff3a04a0dd0b01d0c54a16da0ff036b75e79a6336c",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-08",
+  "source": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/60e104455480e32ee559/project_inputs/input_spec.json",
+  "notes": "Fresh context conversion; source hashes, exact official-trade overlap and full-tape price/quantity grid checked. Any excluded inert zero-depth deletions are explicitly audited with a new cache identity. L2 gaps remain independent segments; no assumed fills in gaps."
+}

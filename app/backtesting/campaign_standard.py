@@ -6,13 +6,18 @@ SYMBOLS=('BTCUSDC','ETHUSDC','SOLUSDC','DOGEUSDC','SUIUSDC','UNIUSDC','LTCUSDC',
          'CRVUSDC','XRPUSDC','WIFUSDC','1000PEPEUSDC','1000SHIBUSDC','1000BONKUSDC')
 
 
+def validate_fees(spec):
+    fees = [D(str(f['maker_fee'])) for f in spec.get('fee_scenarios', [])]
+    if (not fees or len(set(fees)) != len(fees) or D(0) not in fees or
+            not set(fees) <= {D(0), D('-0.00003')}):
+        raise ValueError('Research requires maker 0; optional -0.3bp must be explicitly configured once')
+
+
 def validate_standard(spec):
     if spec.get('stage') not in ('quick','full'):return
     if set(spec['symbols'])!=set(SYMBOLS) or len(spec['symbols'])!=13:
         raise ValueError('Standard quick/full campaigns require all 13 coins')
-    scenarios=spec.get('fee_scenarios',[])
-    if len(scenarios)!=2 or {D(str(f['maker_fee'])) for f in scenarios}!={D(0),D('-0.00003')}:
-        raise ValueError('Standard campaigns require maker 0 and -0.3bp scenarios')
+    validate_fees(spec)
     if spec['engine']['queue']!='cancel_50_50' or D(str(spec['execution']['taker_fee']))!=D('.0004'):
         raise ValueError('Standard campaigns require 50/50 queue and 4bp taker')
     if D(str(spec.get('account',{}).get('max_notional','0')))!=D(1000):
@@ -29,9 +34,7 @@ def validate_new_research(spec):
     if not {'BTCUSDC', 'ETHUSDC'} <= set(spec['symbols']):
         raise ValueError('New research requires BTCUSDC and ETHUSDC; both are mandatory')
     validate_standard(spec)
-    scenarios = spec.get('fee_scenarios', [])
-    if len(scenarios) != 2 or {D(str(f['maker_fee'])) for f in scenarios} != {D(0), D('-0.00003')}:
-        raise ValueError('New research requires maker 0 and -0.3bp scenarios')
+    validate_fees(spec)
     if spec['engine']['queue'] != 'cancel_50_50' or D(str(spec['execution']['taker_fee'])) != D('.0004'):
         raise ValueError('New research requires 50/50 queue and 4bp taker')
     if D(str(spec.get('account', {}).get('max_notional', '0'))) != D(1000):
@@ -42,4 +45,4 @@ def validate_new_research(spec):
 
 def validate_preparation(spec):
     validate_new_research(spec)
-    return {'mode': 'new_research', 'policy_version': 1}
+    return {'mode': 'new_research', 'policy_version': 2}

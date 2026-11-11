@@ -89,12 +89,17 @@ def test_cleanup_refuses_unsafe_or_unpublished_results(tmp_path,bad):
     assert sentinel.read_text()=='keep'
 
 
-def test_failure_retains_bounded_error_html_and_cleans_work(tmp_path):
+def test_failure_retains_bounded_error_html_and_successful_case_outputs(tmp_path):
     path,reg,registry=setup_run(tmp_path)
+    successful=Path(reg['run_output'])/'successful-case';successful.mkdir()
+    (successful/'summary.json').write_text('completed case must survive')
     build_failure_report(path,reg['report_output'],'worker crashed','x'*100000)
     result=finalize(path,registry);payload=read_report(result)
     assert payload['status']=='failed' and len(payload['log_tail'])==65536
-    assert payload['results']['totals']==[] and not Path(reg['run_output']).exists()
+    assert payload['original_observations_retained'] is True
+    assert (successful/'summary.json').read_text()=='completed case must survive'
+    assert payload['results']['totals']==[] and Path(reg['run_output']).exists()
+    assert json.loads(registry.read_text())['entries'][0]['retention']['workspace']=='retained'
     assert json.loads(registry.read_text())['entries'][0]['status']=='failed'
 
 
@@ -157,7 +162,7 @@ def test_run_orchestrator_publishes_and_cleans_success_and_failure(tmp_path,monk
     if worker_exit:
         with pytest.raises(RuntimeError,match='final HTML saved'):fusion_experiment.run(path)
     else:assert fusion_experiment.run(path)==Path(reg['final_report_output'])/'report.html'
-    assert not Path(reg['run_output']).exists()
+    assert Path(reg['run_output']).exists()==bool(worker_exit)
     assert read_report(Path(reg['final_report_output'])/'report.html')['status']==('failed' if worker_exit else 'completed')
 
 
@@ -184,14 +189,14 @@ def publish_with_cleanup_failure(path, registry, monkeypatch):
     return Path(reg['final_report_output'])/'report.html'
 
 
-def test_cleanup_failure_keeps_published_diagnostic_and_owned_workspace(tmp_path,monkeypatch):
+def test_cleanup_failure_keeps_published_completed_report_and_owned_workspace(tmp_path,monkeypatch):
     path,reg,registry=setup_run(tmp_path)
-    build_failure_report(path,reg['report_output'],'worker crashed','bounded diagnostic')
+    complete_report(reg,tmp_path)
     result=publish_with_cleanup_failure(path,registry,monkeypatch)
-    assert read_report(result)['status']=='failed'
+    assert read_report(result)['status']=='completed'
     assert (Path(reg['run_output'])/OWNER).is_file()
     entry=json.loads(registry.read_text())['entries'][0]
-    assert entry['status']=='failed' and entry['retention']['workspace']=='pending'
+    assert entry['status']=='completed' and entry['retention']['workspace']=='pending'
     assert finalize(path,registry)==result
     assert not Path(reg['run_output']).exists()
 

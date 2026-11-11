@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "full-aug01-30-context-jul30-ethusdc-v1",
+  "symbol": "ETHUSDC",
+  "window": {
+    "start": "2026-08-01",
+    "end_exclusive": "2026-08-31",
+    "timezone": "UTC"
+  },
+  "cache_key": "65c03b9ab6cf838e6690",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/65c03b9ab6cf838e6690",
+  "cache_manifest_sha256": "96471b1525e43565440cd01ca40bd7b8f1f23fab6a8acd62306c6a2596e81f37",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-08",
+  "source": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/65c03b9ab6cf838e6690/project_inputs/input_spec.json",
+  "notes": "Fresh context conversion; source hashes, exact official-trade overlap and full-tape price/quantity grid checked. Any excluded inert zero-depth deletions are explicitly audited with a new cache identity. L2 gaps remain independent segments; no assumed fills in gaps."
+}

@@ -310,5 +310,5 @@ def build_failure_report(registration,folder,error,log_tail=''):
         preparation_policy=reg.get('preparation_policy',{'mode':'legacy_unrecorded'}),spec=spec,
         results={'totals':[]},chart_sha256={},error=str(error),log_tail=log_tail[-65536:],
         input_sha256=reg.get('input_sha256',{}),source_sha256=reg.get('source_sha256',{}),
-        retention=spec['outputs'].get('retention','all'),original_observations_retained=spec['outputs'].get('retention','all')!='final_only')
+        retention=spec['outputs'].get('retention','all'),original_observations_retained=True)
     return write_report(Path(folder)/'report.html',payload,{},{} )

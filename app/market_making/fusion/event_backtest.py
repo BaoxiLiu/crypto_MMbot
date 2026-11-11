@@ -18,6 +18,20 @@ from .timing import next_timer_ns
 LOCAL=1 << 30
 
 
+def advance_segment_start(engine, minimum_ns):
+    """Bootstrap an independent book without reversing application time.
+
+    Prior-segment late publications can overlap the next exchange snapshot.
+    No owned orders exist during bootstrap; queued visible inputs are consumed
+    at the monotonic application time, never backdated into earlier decisions.
+    """
+    now=int(engine.current_timestamp)
+    delay=max(0,minimum_ns-now)
+    if delay and engine.elapse(delay)!=0:
+        raise ValueError('Overlapping segment ends before monotonic bootstrap completes')
+    return delay
+
+
 @njit
 def wake(hbt,timeout):
     result=hbt.wait_next_feed(True,timeout)
@@ -216,6 +230,7 @@ def run_event_arm(dataset,output,mask,config,marks_path,funding_rows,rules,execu
         market_observer=getattr(k.strategy,'observe_market',None)
         if market_observer is not None:asset=asset.last_trades_capacity(200000)
         b=h.HashMapMarketDepthBacktest([asset]);b.elapse(1)
+        bootstrap_delay=advance_segment_start(b,max(k.strategy.obs.last_clock or 0,k.oms.clock_ns or 0))
         k.reset_market();signatures.clear();position_offset=k.oms.ledger.position
         now=int(b.current_timestamp);before=k.oms.ledger.equity(k.mark) if k.mark else config.initial_cash
         last_curve=0;pending=False;segment_start=now
@@ -320,6 +335,7 @@ def run_event_arm(dataset,output,mask,config,marks_path,funding_rows,rules,execu
             k.markouts.gap()
             if observer is not None:observer.gap()
             report=k.report();report.update(segment_id=segment['id'],start_ns=segment_start,end_ns=now,
+                monotonic_bootstrap_delay_ns=bootstrap_delay,
                 rows=sum(p['rows'] for p in files),native_fills=native_fills,
                 incremental_pnl=str(k.oms.ledger.equity(k.mark or k.strategy.obs.mid)-before),trace_sha256=trace.hexdigest())
             reports.append(report);write(output/f"segment_{segment['id']:03d}.json",report)

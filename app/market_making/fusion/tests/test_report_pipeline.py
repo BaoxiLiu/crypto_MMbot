@@ -30,11 +30,12 @@ def test_native_replays_publish_self_contained_report_and_release_workspace(tmp_
         outputs=dict(format='html',retention='final_only'),datasets={})
     cases=[];sources={};inputs={};actual={}
     for symbol in spec['symbols']:
-        for mode in ('as_original','as_improved4','hjb_fixed','hjb_adaptive','hjb_budget50','nh'):
+        for mode in ('as_original','as_improved4','hjb_fixed','hjb_adaptive','hjb_budget50','nh','glft'):
             for fee in fees:
                 strategy=mode+'__'+fee['id'];case_id=symbol+'--'+strategy
                 root=work/case_id;root.mkdir()
-                summary,out,cache=replay_case(root,mode,fee=fee['maker_fee'],symbol=symbol,metrics_spec=observations,partial=True,return_artifacts=True)
+                from app.market_making.fusion.tests.test_glft import plugin as glft_plugin
+                summary,out,cache=replay_case(root,mode,plugin_builder=glft_plugin if mode=='glft' else None,fee=fee['maker_fee'],symbol=symbol,metrics_spec=observations,partial=True,return_artifacts=True)
                 identity=summary['identity']
                 spec['execution']=identity['execution_profile']
                 spec['engine']=dict(version=identity['hftbacktest'],queue='cancel_50_50',exchange='partial_fill')
@@ -62,7 +63,7 @@ def test_native_replays_publish_self_contained_report_and_release_workspace(tmp_
     payload=read_report(published)
     assert payload['status']=='completed' and payload['full_range'] is False
     assert payload['spec']['symbols']==['BTCUSDC','ETHUSDC']
-    assert len(payload['results']['totals'])==24
+    assert len(payload['results']['totals'])==28
     assert all(r['average_daily_turnover'] is None for r in payload['supplemental']['cross_coin_metrics.json'])
     assert all(r['average_daily_turnover_multiple'] is None for r in payload['results']['totals'])
     for row in payload['results']['totals']:

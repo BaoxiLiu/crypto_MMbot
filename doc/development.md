@@ -126,6 +126,6 @@ Mac wheel位于`QUANT_DATA_ROOT/crypto/toolchain/backtest_build/reproducible-mak
 
 本轮迁移前后八组原生合成轨迹逐项一致，包括订单trace、成交、费用、库存、现金、PnL及权益数组哈希；未更新黄金数据。新策略接口测试另外验证模拟成交和完整标准报告，不修改核心引擎。2026-11-08最终运行`python -B -m app check --native --tools`：基础门禁143项、原生策略/接入/采集226项、回测及全部根层账户/政策292项、工具187项通过（不同组存在重复检查，不作为唯一测试总数）；另有18个子测试通过，6项旧样本测试跳过。目录、因子一致性、所有生产模块依赖及循环检查通过；根README、AGENTS和六份主题文档的本地Markdown链接均有效。
 
-[最终CLI示例报告](reports/experiments/architecture-as-s1-example-20261108-v2/report.html)由实际外部BTC/ETH认证缓存运行，使用`config/experiments/as_s1_ablation.json`，两个AS参数组合×两币×双maker费率，共8组、66张嵌入图。命令限制`--max-segments 1 --max-files 1`，只读取首个上下文文件，尚未进入交易窗口，成交为0；这是认证输入到最终输出的局部验收，不是三日策略收益。报告登记为completed、full_range=false，96份运行源码身份与交付代码一致；发布登记成功后工作区删除，约9.8 MB中间文件释放。早一轮v1报告登记为superseded并保留，原有用户结果未覆盖。
+局部CLI验收用于验证认证数据到标准报告、发布登记和按所有权清理的链路；有限上下文回放和零成交不构成完整交易验收。此前六份局部验收报告及其登记已按用户要求清理，历史收益比较须由新的完整实验产生。
 
 完整13币历史收益不属于架构验收。NH仅BTC/ETH模型按当前缓存重训，其余11币仍须核验；六项旧v3样本测试可能因已清理的历史样本跳过。原始行情和模型没有因本轮重构被删除或改写。因子实现的独立数值哈希记录`doc/architecture/refactor/factor_migration.json`仍保留，属于数值身份合同。

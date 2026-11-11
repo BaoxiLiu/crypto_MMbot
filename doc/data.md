@@ -93,7 +93,10 @@ publication时钟模式分别处理事务时间T与发布时间E；本地可见�
 
 下载工具为 `tools/data/download_cryptohftdata.py`；通过 `--help` 查看参数。start、end、root为必填参数；运行时显式指定symbols和项目外root，不提供历史日期或项目内下载目录默认值。max-files只做有限下载，不代表整个请求窗口完成。本次文档整理没有发起下载。
 
-转换缓存记录来源及代码哈希；注册配置位于config/datasets，使用前核对实际manifest身份。已迁移原始文件的旧manifest保留生成时路径，不改写旧认证哈希。重新转换应使用当前输入路径并产生新身份。
+转换缓存记录来源及代码哈希；注册配置位于config/datasets，使用前核对实际manifest身份。
+
+`tools/data/prepare_event_dataset.py --rules config/market/规则快照.json` 可在登记前扫描完整事件价格/数量步长。默认遇到偏离步长即拒绝；显式 `--exclude-orphan-depth-deletions` 仅允许排除数量为零的深度删除，且其四舍五入目标在整个预热及交易窗口中从未出现正数量盘口。有效盘口、成交和数量异常仍拒绝；不舍入价格。排除产生新缓存身份，保留父缓存和原始行情，manifest及输入说明记录规则、工具哈希与逐文件审计。
+已迁移原始文件的旧manifest保留生成时路径，不改写旧认证哈希。重新转换应使用当前输入路径并产生新身份。
 
 当前数据位置见[资产清单](data.md)，统一回测流程见[数据链路](data.md)。下载齐全、盘口重建和模拟成交可信是三个不同的验收结论。
 

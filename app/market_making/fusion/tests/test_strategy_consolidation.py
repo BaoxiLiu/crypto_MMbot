@@ -18,9 +18,9 @@ def test_frozen_native_queue_receipts_ledger_and_equity_are_identical(tmp_path,n
     assert replay_case(tmp_path,name)==expected
 
 
-def test_public_registry_only_exposes_three_main_families():
+def test_public_registry_exposes_reviewed_families_including_glft():
     from app.market_making.strategies.registry import available_strategies
-    assert {r['type'] for r in available_strategies()}=={'paper_native_as','nh_quote_value','fb_as_hjb'}
+    assert {r['type'] for r in available_strategies()}=={'paper_native_as','nh_quote_value','fb_as_hjb','glft'}
     assert not {'fb_hjb_capital_budget','as_markout','adaptive_as'} & {r['type'] for r in available_strategies()}
 
 
