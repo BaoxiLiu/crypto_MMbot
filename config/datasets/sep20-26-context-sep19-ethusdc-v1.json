@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "sep20-26-context-sep19-ethusdc-v1",
+  "symbol": "ETHUSDC",
+  "window": {
+    "start": "2026-09-20",
+    "end_exclusive": "2026-09-27",
+    "timezone": "UTC"
+  },
+  "cache_key": "cdbfc488876bc23d6c3a",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/cdbfc488876bc23d6c3a",
+  "cache_manifest_sha256": "7fcf177b9b4ac3d549e7397a4e26beecdbe5162e580c1b1227de7e656fb6d796",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-11",
+  "source": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/cdbfc488876bc23d6c3a/project_inputs/input_spec.json",
+  "notes": "Publication-clock replay with one prewindow day, verified official trade overlap and full-tape grid certification. L2 gaps remain independent segments."
+}

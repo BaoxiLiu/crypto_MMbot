@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "sep20-26-context-sep19-btcusdc-v1",
+  "symbol": "BTCUSDC",
+  "window": {
+    "start": "2026-09-20",
+    "end_exclusive": "2026-09-27",
+    "timezone": "UTC"
+  },
+  "cache_key": "d0b32ed9b25b9fe3f596",
+  "cache_path": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/d0b32ed9b25b9fe3f596",
+  "cache_manifest_sha256": "28bae75a6c61554ee55089ed0fad3e0b7321649071a9114b30a9c7942481c29f",
+  "feed_clock": "publication_E_plus_transport_exchange_T",
+  "feed_latency_ms": 1.5,
+  "gap_policy": "independent_segments",
+  "prewindow_context": true,
+  "certified_date": "2026-11-11",
+  "source": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/d0b32ed9b25b9fe3f596/project_inputs/input_spec.json",
+  "notes": "Publication-clock replay with one prewindow day, verified official trade overlap and full-tape grid certification. L2 gaps remain independent segments."
+}

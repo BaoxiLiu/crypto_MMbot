@@ -16,7 +16,7 @@
 | 家族/用途 | 规范type | 主要参数差异 | 来源 |
 |---|---|---|---|
 | 主线AS及早期改进 | `paper_native_as` v1 | `mode`、`min_half_spread_ticks` | AS理论、参考Hummingbot约定的本地实现、本项目早期paper工程 |
-| GLFT闭式渐近报价 | `glft` v1 | `gamma`、`xi`、`inventory_units` | GLFT论文、HftBacktest示例的独立适配 |
+| GLFT | `glft` v1 | `gamma`、`xi`、`inventory_units`、`inventory_solution`、`reference_price`、`markout_feedback` | GLFT论文、HftBacktest示例的独立适配 |
 | 主线NH | `nh_quote_value` v1 | 各币冻结的`models` | 用户提供的NH压缩包，移植预测和报价选择逻辑 |
 | 主线HJB | `fb_as_hjb` v2 | `adaptive`、`capital_utilization`、求解/学习参数 | Zero-shot论文附录C，本地市场估计与预算扩展 |
 
@@ -27,6 +27,7 @@
 ```text
 app/market_making/strategies/
   as_strategy.py       # ASStrategy：原始/改进AS，参数切换
+  glft_strategy.py     # GLFTStrategy：闭式、谱解及报价覆盖参数
   nh_strategy.py       # NHStrategy：预测与报价选择
   hjb_strategy.py      # HJBStrategy：固定/自适应/预算，同一类
   base.py              # 共用观测和生命周期，不含报价算法
@@ -202,7 +203,7 @@ profile中的未知字段和跨层设置会拒绝；同字段同时内联和引�
 AS仍用mode选择原始/改进、min_half_spread_ticks选择静态下限，并新增可选volatility_adjustment/markout_adjustment独立覆盖。未设置覆盖时保持旧mode的行为；原始AS拒绝启用改进模块。HJB沿用v2的adaptive/capital_utilization。各case仍有独立实例、可变状态、账户及完整展开参数。
 
 
-## GLFT闭式渐近报价
+## GLFT
 
 用户明确要求复现后新增`glft` v1家族；实现位于`app/market_making/strategies/glft_strategy.py`，profile为`config/strategies/glft_v1.json`。它复用AS生命周期与因果成交强度估计，独立替换定价器；没有另一套执行器。原生AS和既有家族的冻结轨迹保持不变。
 
@@ -213,3 +214,19 @@ AS仍用mode选择原始/改进、min_half_spread_ticks选择静态下限，并�
 `gamma=xi=0.05`为参考实现提供的研究起点，没有收益调参或最优性保证；库存单位固定为BTC 0.001、ETH 0.013基础币。AS参数gamma自动初始标定、库存按共同数量上限归一化，GLFT则按明确固定交易单位归一化；两者不能把同名gamma数值直接等同。两者复用同一10分钟/至少120秒、每30秒尝试拟合的到达样本；该拟合使用每秒最远成交穿透与0.5至11.5tick距离，属于到达率近似，不是真实逐订单成交概率，偏离GitHub的采样/拟合范围。GLFT波动用标准差，既有AS仍用价格增量RMS；这些适配差异须随结果披露。
 
 比较配置`config/experiments/as_glft_30day.json`使用BTC/ETH、UTC [2026-08-01,2026-08-31)，7月30日起预热，两家族均关闭微价格/keeper/S1/SC0和额外库存控制。共同600USDC初始资金、1000USDC敞口上限；BTC目标单笔100USDC（两模型一致，避免旧69USDC目标在价格上升时不足最小一手），ETH目标25USDC、maker 0/taker 4bp、50/50撤单队列与既有延迟假设。GLFT不提供盈利用保证。共同保证金压力停机、最小下单量和期末残仓估值仍会影响结果，回放完整不等于全程做市。
+
+### BTC/ETH 报价机制对照
+
+`config/experiments/glft_quote_variants.json`对照原始闭式GLFT及三个单项变化。交易窗为UTC [2026-09-20, 2026-09-27)，9月19日起预热。保留8月比较的资金、下单目标、库存限制、执行与费用配置。回放前固定参数，按币比较期末净PnL和最大回撤，结合1秒成交额加权Markout、成交额、库存暴露及活跃天数判断收益来源。
+
+| 参数 | 报价变化 | 研究依据 |
+|---|---|---|
+| `inventory_solution=spectral` | 用有限库存网格的最小特征值及正特征向量计算两个报价距离，允许库存惩罚随仓位非线性变化 | [GLFT原论文 Theorem 2](https://arxiv.org/pdf/1105.3115) |
+| `reference_price=weighted_mid` | 用当前一档反向数量加权价替换报价中心的中价，风险估值和Markout沿用共同口径 | [Gould–Bonart队列不平衡](https://arxiv.org/abs/1512.03492)、[Cartea–Donnelly–Jaimungal盘口信号](https://ora.ox.ac.uk/objects/uuid%3A006addde-3a03-4d75-89c1-04b59026e1c0)、[HftBacktest盘口不平衡示例](https://hftbacktest.readthedocs.io/en/latest/tutorials/Market%20Making%20with%20Alpha%20-%20Order%20Book%20Imbalance.html) |
+| `markout_feedback` | 按侧使用已成熟的近期1秒Markout估计逆向选择，向外移动该侧的加仓报价 | [Barzykin等的逆向选择研究](https://arxiv.org/abs/2508.20225)、[r/quant的Markout讨论](https://www.reddit.com/r/quant/comments/1oxprfm)、[mm-lab开源对照](https://github.com/batuhanboztepe0/mm-lab) |
+
+谱解采用Δ=1、γ=ξ的平稳模型。令 $Q=\lceil\text{position cap}/\text{inventory unit}\rceil$，矩阵对角为 $k\gamma\sigma^2 q^2/2$，相邻非对角为 $-A(1+\gamma/k)^{-(1+k/\gamma)}$。若正特征向量为 $v$，买卖距分别为 $c_1+\log(v_q/v_{q+1})/k$ 和 $c_1+\log(v_q/v_{q-1})/k$。部分成交以 $\log v$ 线性插值，边界外沿用最后一格斜率计算指示价，OMS仍按实际数量和名义上限裁剪。输入 $A,k,\sigma$ 沿用因果估计，每秒更新。默认闭式报价的缓存也按现有采样秒和拟合时间更新。
+
+加权中价只用当时可见的一档盘口，$p=(aQ_b+bQ_a)/(Q_b+Q_a)$。它是简单的盘口代理。mm-lab在自己的七个币对中未发现其预登记的Markout改善，该结果的市场与成交设定与此实验有别。[mm-lab H5](https://github.com/batuhanboztepe0/mm-lab)
+
+Markout为本地规则。每侧最多保留五个不同订单，每个订单使用最近一条已成熟的部分成交样本。至少三个样本，半衰期20秒，90秒过期，迟到上限250毫秒。该侧按时间加权的均值低于−0.25bp时，超出部分最多加宽1bp，并按最新样本的年龄继续衰减。长仓只加宽买价，短仓只加宽卖价，空仓分别评估两侧。未启用这些参数时使用闭式、中价、无Markout反馈。

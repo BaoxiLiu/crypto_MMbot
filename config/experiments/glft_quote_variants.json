@@ -1,0 +1,142 @@
+{
+  "schema_version": 2,
+  "stage": "custom",
+  "symbols": [
+    "BTCUSDC",
+    "ETHUSDC"
+  ],
+  "rules": "config/market/exchange-info.json",
+  "strategy_parameters": {
+    "BTCUSDC": "config/strategies/accounts/BTCUSDC_100.json",
+    "ETHUSDC": "config/strategies/accounts/ETHUSDC.json"
+  },
+  "fee_scenarios": [
+    {
+      "id": "maker0",
+      "maker_fee": "0"
+    }
+  ],
+  "observations": {
+    "timezone": "UTC",
+    "markout_horizons_ms": [
+      100,
+      500,
+      1000,
+      5000,
+      10000,
+      30000,
+      60000
+    ],
+    "markout_anchor": "local_fill_receipt",
+    "markout_reference": "first_observed_mid_at_or_after",
+    "max_markout_lag_ms": 250,
+    "retain_midpoints": false,
+    "order_placements": true,
+    "order_lifecycle": false
+  },
+  "outputs": {
+    "format": "html",
+    "retention": "final_only",
+    "runs_root": "data/experiments",
+    "reports_root": "doc/reports/experiments",
+    "required": [
+      "pnl_curve",
+      "daily_volume",
+      "total_volume",
+      "markouts",
+      "fills",
+      "effective_config",
+      "input_identity",
+      "validation"
+    ]
+  },
+  "name": "glft-quote-variants",
+  "window": {
+    "start": "2026-09-20",
+    "end_exclusive": "2026-09-27",
+    "timezone": "UTC"
+  },
+  "profiles": {
+    "execution": "config/profiles/execution/queue50_maker0_taker4_v1.json",
+    "risk": "config/profiles/risk/exposure1000_v1.json"
+  },
+  "resources": {
+    "workers": 6
+  },
+  "datasets": {
+    "BTCUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/d0b32ed9b25b9fe3f596",
+      "input_spec": "$QUANT_DATA_ROOT/crypto/certified/BTCUSDC/d0b32ed9b25b9fe3f596/project_inputs/input_spec.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/BTCUSDC/as-prediction-thirteen-20261027-v3-sep/manifest.json"
+    },
+    "ETHUSDC": {
+      "cache": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/cdbfc488876bc23d6c3a",
+      "input_spec": "$QUANT_DATA_ROOT/crypto/certified/ETHUSDC/cdbfc488876bc23d6c3a/project_inputs/input_spec.json",
+      "funding_manifest": "$QUANT_DATA_ROOT/crypto/raw/official_binance/funding/ETHUSDC/as-prediction-monthly-baseline-20261023-v2-sep/manifest.json"
+    }
+  },
+  "strategies": [
+    {
+      "id": "glft",
+      "profile": "config/strategies/glft_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1789862400000000000,
+        "trade_end_ns": 1790467200000000000
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "glft_spectral",
+      "profile": "config/strategies/glft_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1789862400000000000,
+        "trade_end_ns": 1790467200000000000,
+        "inventory_solution": "spectral"
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "glft_weighted_mid",
+      "profile": "config/strategies/glft_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1789862400000000000,
+        "trade_end_ns": 1790467200000000000,
+        "reference_price": "weighted_mid"
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    },
+    {
+      "id": "glft_markout",
+      "profile": "config/strategies/glft_v1.json",
+      "parameter_overrides": {
+        "trade_start_ns": 1789862400000000000,
+        "trade_end_ns": 1790467200000000000,
+        "markout_feedback": {
+          "orders": 5,
+          "minimum_orders": 3,
+          "half_life_ms": 20000,
+          "max_age_ms": 90000,
+          "deadband_bp": 0.25,
+          "cap_bp": 1.0
+        }
+      },
+      "overrides": {
+        "as_config": {
+          "half_spread_floor": 0
+        }
+      }
+    }
+  ]
+}
